@@ -39,9 +39,16 @@ import com.nach.core.util.file.FileUtil;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class ExecutePolitesGoAction {
+public class ExecutePolitesGoActionForSqlServer {
 
-	public static void exec(ArrayList<String> sel, String databaseType, String cdmVersion) {
+	public static void exec(ArrayList<String> sel, String cdmVersion) {
+		String msg = "";
+		msg += "\n* * *";
+		msg += "\n*";
+		msg += "\n* Executing action for SQL SERVER";
+		msg += "\n*";
+		msg += "\n* * *";
+		log.info("\n" + msg + "\n");
 		Connection conn = PolitesConnectionFactory.getBootstrapConnection();
 		try {
 			// reset
