@@ -58,7 +58,7 @@
 		<dependency>
 		    <groupId>org.nachc.cad.tools</groupId>
 		    <artifactId>fhirtoomop</artifactId>
-		    <version>1.7.053</version>
+		    <version>1.7.054</version>
 		</dependency>
 
 		<dependency>

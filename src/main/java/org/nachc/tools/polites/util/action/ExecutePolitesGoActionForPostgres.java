@@ -3,6 +3,11 @@ package org.nachc.tools.polites.util.action;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import org.nachc.tools.fhirtoomop.tools.build.postgres.BurnEverythingToTheGroundPostgres;
+import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01_CreateCdmDatabase;
+import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM02a_CreateCdmDatabaseTables;
+import org.nachc.tools.polites.util.connection.PolitesConnectionFactory;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -16,19 +21,19 @@ public class ExecutePolitesGoActionForPostgres {
 		msg += "\n*";
 		msg += "\n* * *";
 		log.info("\n" + msg + "\n");
-		//		Connection conn = PolitesConnectionFactory.getBootstrapConnection();
+		Connection conn = PolitesConnectionFactory.getBootstrapConnection();
 		try {
 			// reset
 			if (sel.contains("burnEverythingToTheGround")) {
 				log("BURNING EVERYTHING TO THE GROUND");
-				//				BurnEverythingToTheGround.exec(conn);
+				BurnEverythingToTheGroundPostgres.exec(conn);
 				log.info("Done with Burn Everything to the Ground.");
 			}
 			// create database objects
 			if (sel.contains("createDatabase")) {
 				log("CREATING DATABASE");
 				log("Creating OMOP instance...");
-				//				CreateDatabase.exec(conn);
+				CDM01_CreateCdmDatabase.exec(conn);
 				log.info("Done with Create Database.");
 			}
 			if (sel.contains("createDatabaseUsers")) {
@@ -38,10 +43,9 @@ public class ExecutePolitesGoActionForPostgres {
 			}
 			if (sel.contains("createTables")) {
 				log("CREATING TABLES");
-				//				use(conn);
-				//				CreateDatabaseTables.exec(conn);
-				//				CreateFhirResoureTables.exec(conn);
-				//				CreateMappingTables.exec(conn);
+				CDM02a_CreateCdmDatabaseTables.exec(conn);
+				// CreateFhirResoureTables.exec(conn);
+				// CreateMappingTables.exec(conn);
 				log.info("Done with Create Tables.");
 			}
 			if (sel.contains("createCDMSourceRecord")) {

@@ -193,7 +193,7 @@ public class PolitesGui extends JFrame {
 		//
 
 		JPanel controlPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		databaseType = new JComboBox<>(new String[] { "sqlServer", "postgres" }); // Add "postgres" to the array
+		databaseType = new JComboBox<>(new String[] { "postgres", "sqlServer" }); // Add "postgres" to the array
 		databaseType.setRenderer(new DefaultListCellRenderer() {
 			@Override
 			public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
