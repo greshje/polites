@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import org.nachc.tools.fhirtoomop.tools.build.postgres.BurnEverythingToTheGroundPostgres;
+import org.nachc.tools.fhirtoomop.tools.build.postgres.build.A01_CreateAtlasDatabaseUsers;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01_CreateCdmDatabase;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM02a_CreateCdmDatabaseTables;
-import org.nachc.tools.polites.util.connection.PolitesConnectionFactory;
+import org.nachc.tools.polites.util.connection.PolitesPostgresConnectionFactory;
+import org.yaorma.database.Database;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,7 +23,7 @@ public class ExecutePolitesGoActionForPostgres {
 		msg += "\n*";
 		msg += "\n* * *";
 		log.info("\n" + msg + "\n");
-		Connection conn = PolitesConnectionFactory.getBootstrapConnection();
+		Connection conn = PolitesPostgresConnectionFactory.getBootstrapConnection();
 		try {
 			// reset
 			if (sel.contains("burnEverythingToTheGround")) {
@@ -38,7 +40,7 @@ public class ExecutePolitesGoActionForPostgres {
 			}
 			if (sel.contains("createDatabaseUsers")) {
 				log("CREATING USER");
-				//				CreateDatabaseUser.exec(conn);
+				A01_CreateAtlasDatabaseUsers.exec(conn);
 				log.info("Done with Create Database Users.");
 			}
 			if (sel.contains("createTables")) {
@@ -199,7 +201,7 @@ public class ExecutePolitesGoActionForPostgres {
 				log.info("Done running Achilles.");
 			}
 		} finally {
-			//			Database.close(conn);
+			Database.close(conn);
 		}
 	}
 
