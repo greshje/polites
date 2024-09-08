@@ -5,8 +5,10 @@ import java.util.ArrayList;
 
 import org.nachc.tools.fhirtoomop.tools.build.postgres.BurnEverythingToTheGroundPostgres;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.A01_CreateAtlasDatabaseUsers;
-import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01_CreateCdmDatabase;
+import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01a_CreateCdmDatabase;
+import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01b_CreateCdmSchema;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM02a_CreateCdmDatabaseTables;
+import org.nachc.tools.fhirtoomop.util.params.AppParams;
 import org.nachc.tools.polites.util.connection.PolitesPostgresConnectionFactory;
 import org.yaorma.database.Database;
 
@@ -24,7 +26,9 @@ public class ExecutePolitesGoActionForPostgres {
 		msg += "\n* * *";
 		log.info("\n" + msg + "\n");
 		Connection conn = PolitesPostgresConnectionFactory.getBootstrapConnection();
+		Connection userConn = getUserConnection();
 		try {
+			conn.setAutoCommit(true);
 			// reset
 			if (sel.contains("burnEverythingToTheGround")) {
 				log("BURNING EVERYTHING TO THE GROUND");
@@ -33,9 +37,12 @@ public class ExecutePolitesGoActionForPostgres {
 			}
 			// create database objects
 			if (sel.contains("createDatabase")) {
-				log("CREATING DATABASE");
-				log("Creating OMOP instance...");
-				CDM01_CreateCdmDatabase.exec(conn);
+				log.info("CREATING DATABASE");
+				log.info("Creating OMOP instance...");
+				conn.setAutoCommit(true);
+				CDM01a_CreateCdmDatabase.exec(conn);
+				userConn = getUserConnection();
+				CDM01b_CreateCdmSchema.exec(userConn);
 				log.info("Done with Create Database.");
 			}
 			if (sel.contains("createDatabaseUsers")) {
@@ -200,8 +207,11 @@ public class ExecutePolitesGoActionForPostgres {
 				//				RunAchilles.exec();
 				log.info("Done running Achilles.");
 			}
+		} catch (Exception exp) {
+			throw new RuntimeException(exp);
 		} finally {
 			Database.close(conn);
+			Database.close(userConn);
 		}
 	}
 
@@ -221,4 +231,16 @@ public class ExecutePolitesGoActionForPostgres {
 		//		Database.update("use " + schemaName, conn);
 		//		log.info("Using: " + schemaName);
 	}
+
+	private static Connection getUserConnection() {
+		try {
+			Connection conn = PolitesPostgresConnectionFactory.getUserConnection();
+			return conn;
+		} catch (Exception exp) {
+			log.info("COULD NOT GET USER CONNECTION (This probably means the DB hasn't been created yet.)");
+			log.info("Could not get connection for: \n" + AppParams.getUrl());
+			return null;
+		}
+	}
+
 }
