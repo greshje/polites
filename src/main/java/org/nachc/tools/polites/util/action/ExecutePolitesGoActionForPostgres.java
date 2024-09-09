@@ -10,6 +10,7 @@ import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01a_CreateCdmDat
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01b_CreateCdmSchema;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM02a_CreateCdmDatabaseTables;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM03_CreateCdmSourceRecordInCdm;
+import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateCdmTables;
 import org.nachc.tools.fhirtoomop.util.params.AppParams;
 import org.nachc.tools.polites.util.connection.PolitesPostgresConnectionFactory;
 import org.yaorma.database.Database;
@@ -68,13 +69,15 @@ public class ExecutePolitesGoActionForPostgres {
 			}
 			if (sel.contains("createLocationAndCareSiteRecords")) {
 				log("CREATING LOCATION AND CARE_SITE RECORDS");
+				use(userConn);
 				CreateLocationAndCareSiteDummyRecords.exec(userConn);
 				log.info("Done with Create location and care_site Records.");
 			}
 			// terminology
 			if (sel.contains("truncateTerminology")) {
 				log("TRUNCATING TERMINOLOGY");
-				//				TruncateCdmTables.truncateVocabularyTables();
+				use(userConn);
+				TruncateCdmTables.truncateVocabularyTables(userConn);
 				log.info("Done truncating.");
 			}
 			if (sel.contains("loadTerminology")) {
