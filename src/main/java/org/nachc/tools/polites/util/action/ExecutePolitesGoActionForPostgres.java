@@ -3,6 +3,7 @@ package org.nachc.tools.polites.util.action;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import org.nachc.tools.fhirtoomop.tools.build.impl.CreateLocationAndCareSiteDummyRecords;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.BurnEverythingToTheGroundPostgres;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.A01_CreateAtlasDatabaseUsers;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01a_CreateCdmDatabase;
@@ -61,14 +62,13 @@ public class ExecutePolitesGoActionForPostgres {
 			}
 			if (sel.contains("createCDMSourceRecord")) {
 				log("CREATING CDM RECORD");
+				use(userConn);
 				CDM03_CreateCdmSourceRecordInCdm.exec(userConn);
 				log.info("Done with Create CDM Record.");
 			}
 			if (sel.contains("createLocationAndCareSiteRecords")) {
 				log("CREATING LOCATION AND CARE_SITE RECORDS");
-				//				use(conn);
-				//				CreateLocationAndCareSiteDummyRecords.exec(conn);
-				//				Database.commit(conn);
+				CreateLocationAndCareSiteDummyRecords.exec(userConn);
 				log.info("Done with Create location and care_site Records.");
 			}
 			// terminology
@@ -226,10 +226,11 @@ public class ExecutePolitesGoActionForPostgres {
 	}
 
 	private static void use(Connection conn) {
-		//		log.info("Setting default schema...");
-		//		String schemaName = AppParams.getDatabaseName();
-		//		Database.update("use " + schemaName, conn);
-		//		log.info("Using: " + schemaName);
+		log.info("Setting default schema...");
+		String schemaName = AppParams.getFullySpecifiedCdmSchemaName();
+		String sqlString = "set search_path = " + schemaName + ", \"$user\", public;";
+		Database.update(sqlString, conn);
+		log.info("Using: " + schemaName);
 	}
 
 	private static Connection getUserConnection() {
