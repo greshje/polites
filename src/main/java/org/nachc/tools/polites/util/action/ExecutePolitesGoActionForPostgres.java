@@ -8,6 +8,7 @@ import org.nachc.tools.fhirtoomop.tools.build.postgres.build.A01_CreateAtlasData
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01a_CreateCdmDatabase;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01b_CreateCdmSchema;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM02a_CreateCdmDatabaseTables;
+import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM03_CreateCdmSourceRecordInCdm;
 import org.nachc.tools.fhirtoomop.util.params.AppParams;
 import org.nachc.tools.polites.util.connection.PolitesPostgresConnectionFactory;
 import org.yaorma.database.Database;
@@ -29,6 +30,7 @@ public class ExecutePolitesGoActionForPostgres {
 		Connection userConn = getUserConnection();
 		try {
 			conn.setAutoCommit(true);
+			userConn.setAutoCommit(true);
 			// reset
 			if (sel.contains("burnEverythingToTheGround")) {
 				log("BURNING EVERYTHING TO THE GROUND");
@@ -52,16 +54,14 @@ public class ExecutePolitesGoActionForPostgres {
 			}
 			if (sel.contains("createTables")) {
 				log("CREATING TABLES");
-				CDM02a_CreateCdmDatabaseTables.exec(conn);
+				CDM02a_CreateCdmDatabaseTables.exec(userConn);
 				// CreateFhirResoureTables.exec(conn);
 				// CreateMappingTables.exec(conn);
 				log.info("Done with Create Tables.");
 			}
 			if (sel.contains("createCDMSourceRecord")) {
 				log("CREATING CDM RECORD");
-				//				use(conn);
-				//				CreateCdmSourceRecord.exec(conn);
-				//				Database.commit(conn);
+				CDM03_CreateCdmSourceRecordInCdm.exec(userConn);
 				log.info("Done with Create CDM Record.");
 			}
 			if (sel.contains("createLocationAndCareSiteRecords")) {
