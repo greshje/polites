@@ -1,19 +1,28 @@
 package org.nachc.tools.polites.util.action;
 
+import java.io.File;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import org.nachc.tools.fhirtoomop.tools.build.impl.CreateFhirResoureTables;
 import org.nachc.tools.fhirtoomop.tools.build.impl.CreateLocationAndCareSiteDummyRecords;
+import org.nachc.tools.fhirtoomop.tools.build.impl.CreateMappingTables;
+import org.nachc.tools.fhirtoomop.tools.build.impl.LoadMappingTables;
+import org.nachc.tools.fhirtoomop.tools.build.impl.LoadTerminology;
+import org.nachc.tools.fhirtoomop.tools.build.impl.MoveRaceEthFiles;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.BurnEverythingToTheGroundPostgres;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.A01_CreateAtlasDatabaseUsers;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01a_CreateCdmDatabase;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01b_CreateCdmSchema;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM02a_CreateCdmDatabaseTables;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM03_CreateCdmSourceRecordInCdm;
+import org.nachc.tools.fhirtoomop.tools.download.terminology.DownloadDefaultTerminology;
 import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateCdmTables;
 import org.nachc.tools.fhirtoomop.util.params.AppParams;
 import org.nachc.tools.polites.util.connection.PolitesPostgresConnectionFactory;
 import org.yaorma.database.Database;
+
+import com.nach.core.util.file.FileUtil;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -57,8 +66,9 @@ public class ExecutePolitesGoActionForPostgres {
 			if (sel.contains("createTables")) {
 				log("CREATING TABLES");
 				CDM02a_CreateCdmDatabaseTables.exec(userConn);
-				// CreateFhirResoureTables.exec(conn);
-				// CreateMappingTables.exec(conn);
+				use(userConn);
+				CreateFhirResoureTables.exec(userConn);
+				CreateMappingTables.exec(userConn);
 				log.info("Done with Create Tables.");
 			}
 			if (sel.contains("createCDMSourceRecord")) {
@@ -82,23 +92,23 @@ public class ExecutePolitesGoActionForPostgres {
 			}
 			if (sel.contains("loadTerminology")) {
 				log("LOADING TERMINOLOGY");
-				//				use(conn);
-				//				// move the race eth files
-				//				String destDir = AppParams.getTerminologyRootDir();
-				//				File dir = new File(destDir).getParentFile();
-				//				String dirName = FileUtil.getCanonicalPath(dir);
-				//				MoveRaceEthFiles raceFiles = new MoveRaceEthFiles();
-				//				raceFiles.exec(dirName);
-				//				// load the race eth file
-				//				log.info("Loading mapping tables...");
-				//				LoadMappingTables.exec(raceFiles.getSqlFile(), conn);
-				//				// download terminology
-				//				log.info("Checking for default terminology...");
-				//				DownloadDefaultTerminology.exec();
-				//				// load terminology
-				//				log.info("Loading terminology...");
-				//				LoadTerminology.exec(conn);
-				//				log.info("Done loading terminology.");
+				use(userConn);
+				// move the race eth files
+				String destDir = AppParams.getTerminologyRootDir();
+				File dir = new File(destDir).getParentFile();
+				String dirName = FileUtil.getCanonicalPath(dir);
+				MoveRaceEthFiles raceFiles = new MoveRaceEthFiles();
+				raceFiles.exec(dirName);
+				// load the race eth file
+				log.info("Loading mapping tables...");
+				LoadMappingTables.exec(raceFiles.getSqlFile(), userConn);
+				// download terminology
+				log.info("Checking for default terminology...");
+				DownloadDefaultTerminology.exec();
+				// load terminology
+				log.info("Loading terminology...");
+				LoadTerminology.exec(userConn);
+				log.info("Done loading terminology.");
 			}
 			if (sel.contains("importTerminology")) {
 				log("IMPORTING TERMINOLOGY");
