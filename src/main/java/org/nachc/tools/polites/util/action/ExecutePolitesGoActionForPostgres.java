@@ -4,9 +4,7 @@ import java.io.File;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import org.nachc.tools.fhirtoomop.tools.build.impl.CreateFhirResoureTables;
 import org.nachc.tools.fhirtoomop.tools.build.impl.CreateLocationAndCareSiteDummyRecords;
-import org.nachc.tools.fhirtoomop.tools.build.impl.CreateMappingTables;
 import org.nachc.tools.fhirtoomop.tools.build.impl.LoadMappingTables;
 import org.nachc.tools.fhirtoomop.tools.build.impl.LoadTerminology;
 import org.nachc.tools.fhirtoomop.tools.build.impl.MoveRaceEthFiles;
@@ -16,6 +14,8 @@ import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01a_CreateCdmDat
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01b_CreateCdmSchema;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM02a_CreateCdmDatabaseTables;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM03_CreateCdmSourceRecordInCdm;
+import org.nachc.tools.fhirtoomop.tools.build.postgres.build.FHIR01_CreateMappingTables;
+import org.nachc.tools.fhirtoomop.tools.build.postgres.build.FHIR03_CreateFhirResourcesTables;
 import org.nachc.tools.fhirtoomop.tools.download.terminology.DownloadDefaultTerminology;
 import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateCdmTables;
 import org.nachc.tools.fhirtoomop.util.params.AppParams;
@@ -41,7 +41,9 @@ public class ExecutePolitesGoActionForPostgres {
 		Connection userConn = getUserConnection();
 		try {
 			conn.setAutoCommit(true);
-			userConn.setAutoCommit(true);
+			if(userConn != null) {
+				userConn.setAutoCommit(true);
+			}
 			// reset
 			if (sel.contains("burnEverythingToTheGround")) {
 				log("BURNING EVERYTHING TO THE GROUND");
@@ -67,8 +69,8 @@ public class ExecutePolitesGoActionForPostgres {
 				log("CREATING TABLES");
 				CDM02a_CreateCdmDatabaseTables.exec(userConn);
 				use(userConn);
-				CreateFhirResoureTables.exec(userConn);
-				CreateMappingTables.exec(userConn);
+				FHIR03_CreateFhirResourcesTables.exec(userConn);
+				FHIR01_CreateMappingTables.exec(userConn);
 				log.info("Done with Create Tables.");
 			}
 			if (sel.contains("createCDMSourceRecord")) {
