@@ -5,9 +5,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import org.nachc.tools.fhirtoomop.tools.build.impl.CreateLocationAndCareSiteDummyRecords;
-import org.nachc.tools.fhirtoomop.tools.build.impl.LoadMappingTables;
 import org.nachc.tools.fhirtoomop.tools.build.impl.LoadTerminology;
-import org.nachc.tools.fhirtoomop.tools.build.impl.MoveRaceEthFiles;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.BurnEverythingToTheGroundPostgres;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.A01_CreateAtlasDatabaseUsers;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01a_CreateCdmDatabase;
@@ -15,6 +13,8 @@ import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01b_CreateCdmSch
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM02a_CreateCdmDatabaseTables;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM03_CreateCdmSourceRecordInCdm;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.FHIR01_CreateMappingTables;
+import org.nachc.tools.fhirtoomop.tools.build.postgres.build.FHIR01a_MoveRaceEthFiles;
+import org.nachc.tools.fhirtoomop.tools.build.postgres.build.FHIR02_LoadFhirRaceEthMappings;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.FHIR03_CreateFhirResourcesTables;
 import org.nachc.tools.fhirtoomop.tools.download.terminology.DownloadDefaultTerminology;
 import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateCdmTables;
@@ -41,7 +41,7 @@ public class ExecutePolitesGoActionForPostgres {
 		Connection userConn = getUserConnection();
 		try {
 			conn.setAutoCommit(true);
-			if(userConn != null) {
+			if (userConn != null) {
 				userConn.setAutoCommit(true);
 			}
 			// reset
@@ -99,11 +99,12 @@ public class ExecutePolitesGoActionForPostgres {
 				String destDir = AppParams.getTerminologyRootDir();
 				File dir = new File(destDir).getParentFile();
 				String dirName = FileUtil.getCanonicalPath(dir);
-				MoveRaceEthFiles raceFiles = new MoveRaceEthFiles();
+				FHIR01a_MoveRaceEthFiles raceFiles = new FHIR01a_MoveRaceEthFiles();
 				raceFiles.exec(dirName);
 				// load the race eth file
 				log.info("Loading mapping tables...");
-				LoadMappingTables.exec(raceFiles.getSqlFile(), userConn);
+				// LoadMappingTables.exec(raceFiles.getSqlFile(), userConn);
+				FHIR02_LoadFhirRaceEthMappings.exec(raceFiles.getSqlFile(), userConn);
 				// download terminology
 				log.info("Checking for default terminology...");
 				DownloadDefaultTerminology.exec();
@@ -244,6 +245,7 @@ public class ExecutePolitesGoActionForPostgres {
 		log.info("Setting default schema...");
 		String schemaName = AppParams.getFullySpecifiedCdmSchemaName();
 		String sqlString = "set search_path = " + schemaName + ", \"$user\", public;";
+		log.info(sqlString);
 		Database.update(sqlString, conn);
 		log.info("Using: " + schemaName);
 	}
