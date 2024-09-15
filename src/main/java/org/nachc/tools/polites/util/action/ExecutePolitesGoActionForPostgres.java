@@ -16,6 +16,7 @@ import org.nachc.tools.fhirtoomop.tools.build.postgres.build.FHIR01_CreateMappin
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.FHIR01a_MoveRaceEthFiles;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.FHIR02_LoadFhirRaceEthMappings;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.FHIR03_CreateFhirResourcesTables;
+import org.nachc.tools.fhirtoomop.tools.build.postgres.build.VOC99_LoadTerminology;
 import org.nachc.tools.fhirtoomop.tools.download.terminology.DownloadDefaultTerminology;
 import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateCdmTables;
 import org.nachc.tools.fhirtoomop.util.params.AppParams;
@@ -103,14 +104,13 @@ public class ExecutePolitesGoActionForPostgres {
 				raceFiles.exec(dirName);
 				// load the race eth file
 				log.info("Loading mapping tables...");
-				// LoadMappingTables.exec(raceFiles.getSqlFile(), userConn);
 				FHIR02_LoadFhirRaceEthMappings.exec(raceFiles.getSqlFile(), userConn);
 				// download terminology
 				log.info("Checking for default terminology...");
 				DownloadDefaultTerminology.exec();
 				// load terminology
 				log.info("Loading terminology...");
-				LoadTerminology.exec(userConn);
+				VOC99_LoadTerminology.exec(userConn);
 				log.info("Done loading terminology.");
 			}
 			if (sel.contains("importTerminology")) {
