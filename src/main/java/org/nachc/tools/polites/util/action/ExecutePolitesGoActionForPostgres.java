@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import org.nachc.tools.fhirtoomop.tools.build.impl.CreateLocationAndCareSiteDummyRecords;
-import org.nachc.tools.fhirtoomop.tools.build.impl.LoadTerminology;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.BurnEverythingToTheGroundPostgres;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.A01_CreateAtlasDatabaseUsers;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01a_CreateCdmDatabase;
@@ -20,6 +19,7 @@ import org.nachc.tools.fhirtoomop.tools.build.postgres.build.VOC99_LoadTerminolo
 import org.nachc.tools.fhirtoomop.tools.download.terminology.DownloadDefaultTerminology;
 import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateCdmTables;
 import org.nachc.tools.fhirtoomop.util.params.AppParams;
+import org.nachc.tools.fhirtoomop.util.sqlserver.ExportTables;
 import org.nachc.tools.polites.util.connection.PolitesPostgresConnectionFactory;
 import org.yaorma.database.Database;
 
@@ -120,7 +120,7 @@ public class ExecutePolitesGoActionForPostgres {
 			}
 			if (sel.contains("exportTerminology")) {
 				log("EXPORTING TERMINOLOGY");
-				//				ExportTables.exportVocabTables();
+				ExportTables.exportVocabTables();
 				log.info("Done with export terminology.");
 			}
 			// truncate, import, and export data tables
