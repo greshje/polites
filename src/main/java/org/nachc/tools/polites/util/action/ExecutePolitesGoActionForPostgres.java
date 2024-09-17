@@ -127,8 +127,8 @@ public class ExecutePolitesGoActionForPostgres {
 			// truncate, import, and export data tables
 			if (sel.contains("truncateDataTables")) {
 				log("TRUNCATING DATA TABLES");
-				//				use(conn);
-				//				TruncateCdmTables.truncateDataTables();
+				use(userConn);
+				new TruncateTablesForPostgres().truncateDataTables(userConn);
 				log.info("Done truncating.");
 			}
 			if (sel.contains("importDataTables")) {
@@ -146,8 +146,8 @@ public class ExecutePolitesGoActionForPostgres {
 			// truncate, import, and export all tables
 			if (sel.contains("truncateAll")) {
 				log("TRUNCATING ALL TABLES");
-				//				use(conn);
-				//				TruncateCdmTables.truncateAllTables();
+				use(conn);
+				new TruncateTablesForPostgres().truncateAllTables();
 				log.info("Done truncating.");
 			}
 			if (sel.contains("importAll")) {

@@ -131,7 +131,7 @@ public class ExecutePolitesGoActionForSqlServer {
 			if (sel.contains("truncateDataTables")) {
 				log("TRUNCATING DATA TABLES");
 				use(conn);
-				new TruncateTablesForSqlServer().truncateDataTables();
+				new TruncateTablesForSqlServer().truncateDataTables(conn);
 				log.info("Done truncating.");
 			}
 			if (sel.contains("importDataTables")) {
