@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import org.nachc.tools.fhirtoomop.tools.build.impl.CreateLocationAndCareSiteDummyRecords;
+import org.nachc.tools.fhirtoomop.tools.build.impl.fileupload.UploadCsvFilesFromZipForPostgres;
 import org.nachc.tools.fhirtoomop.tools.build.impl.fileupload.UploadCsvFilesFromZipForSqlServer;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.BurnEverythingToTheGroundPostgres;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.A01_CreateAtlasDatabaseUsers;
@@ -133,8 +134,8 @@ public class ExecutePolitesGoActionForPostgres {
 			}
 			if (sel.contains("importDataTables")) {
 				log("IMPORTING DATA TABLES");
-				//				use(conn);
-				//				UploadCsvForSqlServer.uploadDatatables();
+				use(userConn);
+				UploadCsvFilesFromZipForPostgres.uploadDatatables(userConn);
 				log.info("Done importing.");
 			}
 			if (sel.contains("exportDataTables")) {
