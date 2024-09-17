@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import org.nachc.tools.fhirtoomop.tools.build.impl.CreateLocationAndCareSiteDummyRecords;
+import org.nachc.tools.fhirtoomop.tools.build.impl.fileupload.UploadCsvFilesFromZipForSqlServer;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.BurnEverythingToTheGroundPostgres;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.A01_CreateAtlasDatabaseUsers;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.CDM01a_CreateCdmDatabase;
@@ -115,7 +116,7 @@ public class ExecutePolitesGoActionForPostgres {
 			}
 			if (sel.contains("importTerminology")) {
 				log("IMPORTING TERMINOLOGY");
-				//				UploadCsvForSqlServer.uploadTerminologyTables();
+				UploadCsvFilesFromZipForSqlServer.uploadTerminologyTables();
 				log.info("Done with import terminology.");
 			}
 			if (sel.contains("exportTerminology")) {

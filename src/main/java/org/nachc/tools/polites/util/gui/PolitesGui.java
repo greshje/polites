@@ -321,6 +321,7 @@ public class PolitesGui extends JFrame {
 			Timer timer = new Timer();
 			timer.start();
 			ArrayList<String> sel = new ArrayList<String>();
+			log.info("Using java version: \n" + System.getProperty("java.version"));
 			log.info("User chose to continue with the following selections:");
 			// reset
 			if (burnEverythingToTheGround.isSelected()) {
@@ -455,6 +456,8 @@ public class PolitesGui extends JFrame {
 			msg += "\nelapsed: " + timer.getElapsedString();
 			msg += "\n---------------";
 			log.info("\n" + msg + "\n");
+			log.info("This code was run using the following java version: \n" + System.getProperty("java.version"));
+			
 			log.info("Done.");
 		} else {
 			log.info("User canceled the action.");

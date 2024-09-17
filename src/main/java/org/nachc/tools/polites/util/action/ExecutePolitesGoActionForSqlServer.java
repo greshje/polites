@@ -23,12 +23,12 @@ import org.nachc.tools.fhirtoomop.tools.build.impl.EnableConstraints;
 import org.nachc.tools.fhirtoomop.tools.build.impl.LoadMappingTables;
 import org.nachc.tools.fhirtoomop.tools.build.impl.LoadTerminology;
 import org.nachc.tools.fhirtoomop.tools.build.impl.MoveRaceEthFiles;
+import org.nachc.tools.fhirtoomop.tools.build.impl.fileupload.UploadCsvFilesFromZipForSqlServer;
 import org.nachc.tools.fhirtoomop.tools.download.terminology.DownloadDefaultTerminology;
 import org.nachc.tools.fhirtoomop.tools.syntheacsv.UploadSyntheaCsvFiles;
 import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateCdmTables;
 import org.nachc.tools.fhirtoomop.util.params.AppParams;
 import org.nachc.tools.fhirtoomop.util.sqlserver.ExportTables;
-import org.nachc.tools.fhirtoomop.util.uploadcsv.sqlserver.UploadCsvForSqlServer;
 import org.nachc.tools.fhirtoomop.util.webapi.CreateWebApiRecords;
 import org.nachc.tools.fhirtoomop.util.webapi.DeleteWebApiRecords;
 import org.nachc.tools.polites.util.connection.PolitesConnectionFactory;
@@ -119,7 +119,7 @@ public class ExecutePolitesGoActionForSqlServer {
 			}
 			if (sel.contains("importTerminology")) {
 				log("IMPORTING TERMINOLOGY");
-				UploadCsvForSqlServer.uploadTerminologyTables();
+				UploadCsvFilesFromZipForSqlServer.uploadTerminologyTables();
 				log.info("Done with import terminology.");
 			}
 			if (sel.contains("exportTerminology")) {
@@ -137,7 +137,7 @@ public class ExecutePolitesGoActionForSqlServer {
 			if (sel.contains("importDataTables")) {
 				log("IMPORTING DATA TABLES");
 				use(conn);
-				UploadCsvForSqlServer.uploadDatatables();
+				UploadCsvFilesFromZipForSqlServer.uploadDatatables();
 				log.info("Done importing.");
 			}
 			if (sel.contains("exportDataTables")) {
@@ -156,7 +156,7 @@ public class ExecutePolitesGoActionForSqlServer {
 			if (sel.contains("importAll")) {
 				log("IMPORTING ALL TABLES");
 				use(conn);
-				UploadCsvForSqlServer.uploadAll();
+				UploadCsvFilesFromZipForSqlServer.uploadAll();
 				log.info("Done importing.");
 			}
 			if (sel.contains("exportAll")) {
