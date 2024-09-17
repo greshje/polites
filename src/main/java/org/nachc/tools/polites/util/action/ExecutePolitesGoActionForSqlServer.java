@@ -26,7 +26,7 @@ import org.nachc.tools.fhirtoomop.tools.build.impl.MoveRaceEthFiles;
 import org.nachc.tools.fhirtoomop.tools.build.impl.fileupload.UploadCsvFilesFromZipForSqlServer;
 import org.nachc.tools.fhirtoomop.tools.download.terminology.DownloadDefaultTerminology;
 import org.nachc.tools.fhirtoomop.tools.syntheacsv.UploadSyntheaCsvFiles;
-import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateCdmTables;
+import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateTablesForSqlServer;
 import org.nachc.tools.fhirtoomop.util.params.AppParams;
 import org.nachc.tools.fhirtoomop.util.sqlserver.ExportTables;
 import org.nachc.tools.fhirtoomop.util.webapi.CreateWebApiRecords;
@@ -94,7 +94,7 @@ public class ExecutePolitesGoActionForSqlServer {
 			// terminology
 			if (sel.contains("truncateTerminology")) {
 				log("TRUNCATING TERMINOLOGY");
-				TruncateCdmTables.truncateVocabularyTables();
+				new TruncateTablesForSqlServer().truncateVocabularyTables();
 				log.info("Done truncating.");
 			}
 			if (sel.contains("loadTerminology")) {
@@ -131,7 +131,7 @@ public class ExecutePolitesGoActionForSqlServer {
 			if (sel.contains("truncateDataTables")) {
 				log("TRUNCATING DATA TABLES");
 				use(conn);
-				TruncateCdmTables.truncateDataTables();
+				new TruncateTablesForSqlServer().truncateDataTables();
 				log.info("Done truncating.");
 			}
 			if (sel.contains("importDataTables")) {
@@ -150,7 +150,7 @@ public class ExecutePolitesGoActionForSqlServer {
 			if (sel.contains("truncateAll")) {
 				log("TRUNCATING ALL TABLES");
 				use(conn);
-				TruncateCdmTables.truncateAllTables();
+				new TruncateTablesForSqlServer().truncateAllTables();
 				log.info("Done truncating.");
 			}
 			if (sel.contains("importAll")) {

@@ -18,7 +18,7 @@ import org.nachc.tools.fhirtoomop.tools.build.postgres.build.FHIR02_LoadFhirRace
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.FHIR03_CreateFhirResourcesTables;
 import org.nachc.tools.fhirtoomop.tools.build.postgres.build.VOC99_LoadTerminology;
 import org.nachc.tools.fhirtoomop.tools.download.terminology.DownloadDefaultTerminology;
-import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateCdmTables;
+import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateTablesForPostgres;
 import org.nachc.tools.fhirtoomop.util.params.AppParams;
 import org.nachc.tools.fhirtoomop.util.sqlserver.ExportTables;
 import org.nachc.tools.polites.util.connection.PolitesPostgresConnectionFactory;
@@ -91,7 +91,7 @@ public class ExecutePolitesGoActionForPostgres {
 			if (sel.contains("truncateTerminology")) {
 				log("TRUNCATING TERMINOLOGY");
 				use(userConn);
-				TruncateCdmTables.truncateVocabularyTables(userConn);
+				new TruncateTablesForPostgres().truncateVocabularyTables(userConn);
 				log.info("Done truncating.");
 			}
 			if (sel.contains("loadTerminology")) {
