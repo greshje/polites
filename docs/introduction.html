@@ -663,19 +663,103 @@ Download and run the
 <a href="https://www.dropbox.com/scl/fi/4aa2rwf4u9h3p8krrkaem/YesPolitesInstaller-1.1.002.exe?rlkey=y6zy3wmg0hmxdj1e0wnvhn1x6&st=nurxejii&dl=1">YesPolitesInstaller-1.1.002.exe</a>
 </li>
 <li>
-Run the SQL Server installer provided by the YesPolitesInstaller found
-in
+Run the SQL Server and SSM installerS provided by the
+YesPolitesInstaller found in c:\_YES_POLITES\databases\sqlserver
+</li>
+<li>
+Run the Docker installer provided by the YesPolitesInstaller found in
+C:\_YES_POLITES\tools\docker
+</li>
+<li>
+Install and configure Broadsea by running
+C:\_YES_POLITES\workspace\install-broadsea.bat
+</li>
+<li>
+Start Docker by running C:\_YES_POLITES\workspace\Broadsea\start.bat
+</li>
+<li>
+Download and run the
+<a href="https://github.com/NACHC-CAD/polites/releases">Latest Release
+of Polites</a>
+</li>
+<li>
+Restart Docker by running the stop.bat and start.bat files in
+C:\_YES_POLITES\workspace\Broadsea
 </li>
 </ol>
 </p>
 </p>
 <!--
 *
-* A Note on resources
+* Notes on Docker scripts
 *
 -->
 <h2>
-A Note on Resources
+Notes on Docker scripts
+</h2>
+<p style="text-align: justify;">
+<p>
+Polites includes a number of scripts in the
+C:\_YES_POLITES\workspace\Broadsea directory to make common tasks for
+Docker easer. These scripts include the following:
+<ul>
+<li>
+<b>start.bat:</b> This script will start Docker using the appropriate
+settings for Broadsea.
+</li>
+<li>
+<b>stop.bat:</b> This script will stop Docker using the appropriate
+settings for Broadsea.
+</li>
+<li>
+<b>clean-docker.sh:</b> This script will remove all images, containers,
+and volumes from Docker.<br />
+
+</li>
+<li>
+<b>reset.bat</b>: This script will keep the Postgres database used by
+Broadsea and remove all other images, containers, and volumes from
+Docker.<br />
+
+</li>
+<li>
+<b>show-docker.bat</b>: This script will show all of the images,
+containers, and volumes currently in Docker.
+</li>
+<li>
+<b>export-demo_db.bat</b>: This script can be used to export the
+demo_cdm as csv files.
+</li>
+</ul>
+</p>
+</p>
+<!--
+*
+* Notes on Convenience scripts
+*
+-->
+<h2>
+Notes on Convenience scripts
+</h2>
+<p style="text-align: justify;">
+</p>
+<!--
+*
+* Notes on Other Tools Implemented by Polites
+*
+-->
+<h2>
+Notes on Other Polites Tools
+</h2>
+<p style="text-align: justify;">
+</p>
+<!--
+*
+* Notes on resources
+*
+-->
+<h2>
+Notes on Resources
 </h2>
 <p style="text-align: justify;">
 <p>
