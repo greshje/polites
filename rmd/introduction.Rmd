@@ -1,0 +1,86 @@
+---
+title: '<div><img src="ohdsi40x40.png"></img> <b>Polites Introduction</b> </div>'
+output:
+   html_document:
+        toc: TRUE
+        toc_depth: 4
+        toc_float:
+          collapsed: false
+---
+
+<!--
+*
+* Introduction
+*
+-->
+
+<h2>Polites and Broadsea in a Nutshell</h2>
+<p style="text-align: justify;">
+Polites is a Java based tool that enables the automation of complete OHDSI implementations for Broadsea based OHDSI deployments. 
+</p>
+<p style="text-align: justify;">
+Broadsea is an amazing tool that enables the reliable deployment of a complete OHDSI implementation repleate with a demo/test Common Data Model (CDM) instance.  
+</p>
+<p style="text-align: justify;">
+However, creating a production instance of a CDM and getting it connected to Broadsea is a lengthy meticulous process.  
+</p>
+<p style="text-align: justify;">
+Polites provides a way to automate this process and includes tools that can be used for the maintenance of existing production deployments.  
+</p>
+
+<!--
+*
+* Creating an Instance of Broadsea
+*
+-->
+
+<h2>Creating an Instance of Broadsea</h2>
+<p style="text-align: justify;">
+  <p>
+    Creating an instance of Broadsea is very easy, very reliable, and requires very few dependencies.  
+  </p>
+  <p>
+    To install Broadsea you will need an instance of Java (a correct version), an instance of Git (a correct version), and an instance of Docker (a correct version)
+  </p>
+  <p>
+    After the dependencies are installed, installing Docker is as simple as using Git to clone Broadsea from Github and checking out the version you want. After that Broadsea can be started by simply starting Docker from the Broadsea directory using docker-compose --profile default up -d. 
+  </p>
+  <p>
+    The entire process is shown below.  
+    <pre class="preformatted">
+git config --global core.autocrlf false
+git clone https://github.com/OHDSI/Broadsea
+cd Broadsea
+git checkout v3.0.0
+cd Broadsea
+docker-compose --profile default up -d
+    </pre>
+  </p>
+  <p>
+    And just like that, we have an OHDSI stack up and running. We can now go and take a look at the demo database provided by Broadsea at 
+    <a href="http://127.0.0.1/atlas/">http://127.0.0.1/atlas/</a>
+  </p>
+  <p>
+    <img src="./img/introduction/broadsea-atlas.jpg" />
+  </p>
+</p>
+
+<h3>What Broadsea Does</h3>
+<h3>What's Left to do Outside of Broadsea</h3>
+
+<!--
+*
+* Automation with Polites
+*
+-->
+
+<h2>Automation with Polites</h2>
+
+<!--
+*
+* Polites: What's in a Name
+*
+-->
+
+<h2>Polites: What's in a Name</h2>
+
