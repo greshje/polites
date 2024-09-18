@@ -617,7 +617,7 @@ Load the Athena files into the CDM Vocabulary tables
 </li>
 <li>
 Import your data into the CDM data tables (PERSON, MEASUREMENT,
-OBSERVATION, etc.
+OBSERVATION, etc.)
 </li>
 <li>
 Create the indexes on the CDM using the DDL from the CDM
@@ -651,6 +651,109 @@ Run Achilles
 <h2>
 Automation with Polites
 </h2>
+<p style="text-align: justify;">
+<p>
+All of the above can be achieved using Polites in a few easy steps. Not
+only is the Polites process much easier it is much more consistent,
+repeatable, and reliable.<br />
+
+<ol>
+<li>
+Download and run the
+<a href="https://www.dropbox.com/scl/fi/4aa2rwf4u9h3p8krrkaem/YesPolitesInstaller-1.1.002.exe?rlkey=y6zy3wmg0hmxdj1e0wnvhn1x6&st=nurxejii&dl=1">YesPolitesInstaller-1.1.002.exe</a>
+</li>
+<li>
+Run the SQL Server installer provided by the YesPolitesInstaller found
+in
+</li>
+</ol>
+</p>
+</p>
+<!--
+*
+* A Note on resources
+*
+-->
+<h2>
+A Note on Resources
+</h2>
+<p style="text-align: justify;">
+<p>
+Setting up an OHDSI stack requires multiple resources such as JDBC
+database drivers, vocabulary files, mapping files, export files, etc.
+Polites stores these files online and they are downloaded as part of the
+Polites build process. This eliminates the need to hunt for, find,
+download, and install these files (often finding the wrong version and
+needing to start over again).
+</p>
+<p>
+All of the resources downloaded by Polites can be found in
+C:\temp\Polites.
+</p>
+<p>
+<img src="img/introduction/temp-files.jpg" />
+</p>
+</p>
+<!--
+*
+* Summary
+*
+-->
+<h2>
+Summary
+</h2>
+<p style="text-align: justify;">
+<p>
+<ul>
+<li>
+Polites provides an easy way to create a CDM and connect it to the OHDSI
+stack implemented by Broadsea
+</li>
+<li>
+This process is not only easier, but is also more reliable, consistent,
+and repeatable
+</li>
+<li>
+This process ensures that the compatable versions of components are used
+</li>
+<li>
+This process ensures stability by using code freezes and stable
+releases: Components are only versioned as part of planed development
+cycles, code freezes, and releases
+</li>
+<li>
+Polites also provides tools for common tasks such as importing and
+exporting data as csv
+</li>
+<li>
+Polites supports multiple DBMS implementations such as SQL Server,
+PostgreSql, Databricks, etc.
+</li>
+<li>
+The ability to import and export data in a common csv format alows
+Polites to be used to migrate CDM instances from one DBMS to another
+</li>
+<li>
+All configuration for Polites is in a small single properties file. This
+has several advantages including the ability to see the scope of all
+variables that are part of the build and to make all configureation
+changes in a single place. This also makes in incredibly easy to clone a
+system from one site to another. This ability is especailly useful for
+testing. Testing envrionments can be created and reproduced simply by
+sharing configuration files
+</li>
+<li>
+Polites solves the problems that arise from needing to correctly
+identify, locate, and download resources such as JDBC drivers,
+vocabulary files, and other resources: Resources are posted to
+accessable URLs and downloaded automatically as part of the Polites
+build. This capability is configurable. For example, a project could
+define their own complete Athena vocabulary and use Polites to
+distribute it to multiple sites.
+</li>
+</ul>
+</p>
+</p>
 <!--
 *
 * Polites: What's in a Name
