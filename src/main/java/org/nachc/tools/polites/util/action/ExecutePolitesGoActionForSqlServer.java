@@ -42,13 +42,6 @@ import lombok.extern.slf4j.Slf4j;
 public class ExecutePolitesGoActionForSqlServer {
 
 	public static void exec(ArrayList<String> sel, String cdmVersion) {
-		String msg = "";
-		msg += "\n* * *";
-		msg += "\n*";
-		msg += "\n* Executing action for SQL SERVER";
-		msg += "\n*";
-		msg += "\n* * *";
-		log.info("\n" + msg + "\n");
 		Connection conn = PolitesConnectionFactory.getBootstrapConnection();
 		try {
 			// reset
@@ -243,10 +236,15 @@ public class ExecutePolitesGoActionForSqlServer {
 	}
 
 	private static void use(Connection conn) {
-		log.info("Setting default schema...");
-		String schemaName = AppParams.getDatabaseName();
-		Database.update("use " + schemaName, conn);
-		log.info("Using: " + schemaName);
+		try {
+			log.info("Setting default schema...");
+			String schemaName = AppParams.getDatabaseName();
+			Database.update("use " + schemaName, conn);
+			conn.setAutoCommit(true);
+			log.info("Using: " + schemaName);
+		} catch(Exception exp) {
+			throw new RuntimeException(exp);
+		}
 	}
 
 }
