@@ -66,7 +66,68 @@ docker-compose --profile default up -d
 </p>
 
 <h3>What Broadsea Does</h3>
+<p style="text-align: justify;">
+Broadsea provides a turn-key solution with unparalleled ease of use and a standardized stable production deployment that includes an instance of a Common Data Model replete with test data in PostgreSql.
+</p>
 <h3>What's Left to do Outside of Broadsea</h3>
+<p style="text-align: justify;">
+  <p>
+    For virtually every user of Broadsea, there will come a time when there is a need to point to an instance of the CDM other than the demo instance that is included in Broadsea. 
+  </p>
+  <p>
+    This could be a development or test instance that uses a different data set. This could be an instance that exists in a different DBMS such as SQL Server, PostgreSql, Databricks, Redshift, etc., or this could be the CDM for your production data. 
+  </p>
+  <p>
+    Setting up this other CDM instance can be a lengthy meticulous process that for the most part occurs outside of Broadsea. 
+  </p>
+  <p>
+    This process has been automated by Polites. 
+  </p>
+</p>
+
+<h3>An Example</h3>
+<p style="text-align: justify;">
+  <p>
+    As an example, lets look at the steps required to manually set up a CDM instance in SQL Server and get Broadsea to point to it. 
+  </p>
+  <h4>Set up for Broadsea</h4>
+  <ul>
+    <li>Install Java (the correct version)</li>
+    <li>Install a Git client (a correct version)</li>
+    <li>Install Docker (a correct version)</li>
+    <li>Before we clone and check out Broadsea, remember that we need to use <i>git config --global core.autocrlf false</i></li>
+    <li>Git clone Broadsea</li>
+    <li>Git checkout the version of Broadsea we want to use</li>
+    <li>Clear Docker of any previous version of Broadsea and possibly other application that may exist if this is not a new install of Docker</li>
+    <li>
+      Add postgresql.conf:
+      <ul>
+        <li>shared_buffers = 32GB</li>
+        <li>work_mem = 32GB</li>
+        <li>effective_cache_size = 32GB</li>
+      </ul>
+    </li>
+    <li>
+      Modifications to docker-compose.yml
+      <ul>
+        <li>mem_limit: 32g</li>
+        <li>shm_size: 32g</li>
+        <li>Mapping to resources file: - C:/temp:/temp</li>
+        <li>Mapping to postgresql.conf: - ./postgresql.conf:/etc/postgresql/postgresql.conf</li>
+      </ul>
+    </li>
+    
+  </ul>
+  <h4>Set up for SQL Server</h4>
+  <ul>
+    <li>Find and Install Microsoft SQL Server (a correct version)</li>
+    <li>Download and install the JDBC Driver (the correct version)</li>
+    <li>Download, install, and configure the DLL for the JDBC driver (the correct version)</li>
+    <li>Enable TCP/IP</li>
+    <li>Enable Mixed Mode Authentication</li>
+    <li>Restart SQL Server</li>
+  </ul>
+</p>
 
 <!--
 *
