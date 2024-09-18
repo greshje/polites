@@ -127,6 +127,35 @@ Broadsea provides a turn-key solution with unparalleled ease of use and a standa
     <li>Enable Mixed Mode Authentication</li>
     <li>Restart SQL Server</li>
   </ul>
+  <h4>Databases, Users, Permissions, etc.</h4>
+  <ul>
+    <li>Create a SQL Server database for the CDM</li>
+    <li>Create a login for uid/pwd authentication</li>
+    <li>
+      Grant privileges for login:
+      <ul>
+        <li>exec sp_addrolemember N'db_accessadmin', N' </li>
+        <li>exec sp_addrolemember N'db_backupoperator', N' </li>
+        <li>exec sp_addrolemember N'db_datareader', N' </li>
+        <li>exec sp_addrolemember N'db_datawriter', N' </li>
+        <li>exec sp_addrolemember N'db_ddladmin', N' </li>
+        <li>exec sp_addrolemember N'db_owner', N' </li>
+        <li>exec sp_addrolemember N'db_securityadmin', N' </li>
+      </ul>
+    </li>
+    <li>Create the tables for the CDM database using the DDL files from the CDM</li>
+    <li>Create a record in CDM_SOURCE</li>
+    <li>Create or find a suitable vocabulary download from Athena</li>
+    <li>Load the Athena files into the CDM Vocabulary tables</li>
+    <li>Import your data into the CDM data tables (PERSON, MEASUREMENT, OBSERVATION, etc.)</li>
+    <li>Create the indexes on the CDM using the DDL from the CDM</li>
+    <li>Create the constraints on the CDM using the DDL from the CDM</li>
+    <li>Create WEBAPI SOURCE and SOURCE_DAIMON records</li>
+    <li>Create the Achilles results database</li>
+    <li>Create the Achilles temp database</li>
+    <li>Grant appropriate privileges to appropriate users on the Achilles results and temp databases</li>
+    <li>Run Achilles</li>
+  </ul>
 </p>
 
 <!--

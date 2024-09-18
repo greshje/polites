@@ -173,7 +173,7 @@ public class ExecutePolitesGoActionForSqlServer {
 				log.info("Done with Create Sequences.");
 			}
 			if (sel.contains("createIndexes")) {
-				log("CREATING CONSTRAINTS");
+				log("CREATING INDEXES");
 				use(conn);
 				CreateDatabaseIndexes.exec(conn);
 				log.info("Done with Create Indexes.");
