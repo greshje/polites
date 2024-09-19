@@ -36,16 +36,16 @@ Polites provides a way to automate this process and includes tools that can be u
 
 <h2>Creating an Instance of Broadsea</h2>
 <p style="text-align: justify;">
-  <p>
+  <p style="text-align: justify;">
     Creating an instance of Broadsea is very easy, very reliable, and requires very few dependencies.  
   </p>
-  <p>
+  <p style="text-align: justify;">
     To install Broadsea you will need an instance of Java (a correct version), an instance of Git (a correct version), and an instance of Docker (a correct version)
   </p>
-  <p>
+  <p style="text-align: justify;">
     After the dependencies are installed, installing Docker is as simple as using Git to clone Broadsea from Github and checking out the version you want. After that Broadsea can be started by simply starting Docker from the Broadsea directory using docker-compose --profile default up -d. 
   </p>
-  <p>
+  <p style="text-align: justify;">
     The entire process is shown below.  
     <pre class="preformatted">
 git config --global core.autocrlf false
@@ -56,11 +56,11 @@ cd Broadsea
 docker-compose --profile default up -d
     </pre>
   </p>
-  <p>
+  <p style="text-align: justify;">
     And just like that, we have an OHDSI stack up and running. We can now go and take a look at the demo database provided by Broadsea at 
     <a href="http://127.0.0.1/atlas/">http://127.0.0.1/atlas/</a>
   </p>
-  <p>
+  <p style="text-align: justify;">
     <img src="./img/introduction/broadsea-atlas.jpg" />
   </p>
 </p>
@@ -71,23 +71,23 @@ Broadsea provides a turn-key solution with unparalleled ease of use and a standa
 </p>
 <h3>What's Left to do Outside of Broadsea</h3>
 <p style="text-align: justify;">
-  <p>
+  <p style="text-align: justify;">
     For virtually every user of Broadsea, there will come a time when there is a need to point to an instance of the CDM other than the demo instance that is included in Broadsea. 
   </p>
-  <p>
+  <p style="text-align: justify;">
     This could be a development or test instance that uses a different data set. This could be an instance that exists in a different DBMS such as SQL Server, PostgreSql, Databricks, Redshift, etc., or this could be the CDM for your production data. 
   </p>
-  <p>
+  <p style="text-align: justify;">
     Setting up this other CDM instance can be a lengthy meticulous process that for the most part occurs outside of Broadsea. 
   </p>
-  <p>
+  <p style="text-align: justify;">
     This process has been automated by Polites. 
   </p>
 </p>
 
 <h3>An Example</h3>
 <p style="text-align: justify;">
-  <p>
+  <p style="text-align: justify;">
     As an example, lets look at the steps required to manually set up a CDM instance in SQL Server and get Broadsea to point to it. 
   </p>
   <h4>Set up for Broadsea</h4>
@@ -166,7 +166,7 @@ Broadsea provides a turn-key solution with unparalleled ease of use and a standa
 
 <h2>Automation with Polites</h2>
 <p style="text-align: justify;">
-  <p>
+  <p style="text-align: justify;">
     All of the above can be achieved using Polites in a few easy steps. Not only is the Polites process much easier it is much more consistent, repeatable, and reliable.  
     <ol>
       <li>
@@ -194,7 +194,7 @@ Broadsea provides a turn-key solution with unparalleled ease of use and a standa
 
 <h2>Notes on Docker scripts</h2>
 <p style="text-align: justify;">
-  <p>
+  <p style="text-align: justify;">
     Polites includes a number of scripts in the C:\\_YES_POLITES\\workspace\\Broadsea directory to make common tasks for Docker easer.  These scripts include the following:
     <ul>
       <li>
@@ -228,6 +228,15 @@ Broadsea provides a turn-key solution with unparalleled ease of use and a standa
 
 <h2>Notes on Convenience scripts</h2>
 <p style="text-align: justify;">
+  <p style="text-align: justify;">
+    Polites also includes a number of convience scripts in C:\\_YES_POLITES\\tools\\bat for common tasks including the following. 
+    <ul>
+      <li><b>git-init.bat</b>: This script sets the git user.email (parameter 1) and user.name (parameter 2)</li>
+      <li><b>commit</b>: This script will commit all of your changes directly up to Github. The first parameter is used as the message.</li>
+      <li><b>jv.bat</b>: This script allows you to change the current version of Java. Valid parameters are 8 and 11.</li>
+      <li><b>git-details, where-am-i, where-am-i-really</b>: These are all variation on getting the details of where the current project is in Github (e.g. where it was cloned from, the current branch, the tag, the SHA, etc.</li>
+    </ul>
+  </p>
 </p>
 
 <!--
@@ -238,6 +247,14 @@ Broadsea provides a turn-key solution with unparalleled ease of use and a standa
 
 <h2>Notes on Other Polites Tools</h2>
 <p style="text-align: justify;">
+  Polites provides a number of other tools for common tasks including the following.  
+  <ul>
+    <li><b>Burn Everything to the Ground</b>: This Option deletes all of the items created by Polites</li>
+    <li><b>Create Dummy Location and Care Site Records</b>: This options creates a "not known" record in location and care_site. This option is for data sets that do not have values for these tables. This option is required as these are required foreign keys. </li>
+    <li><b>Import and Export Options</b>: The import and export options allow a CDM to be exported by one instance and imported into an other. This can be done for the entire CDM, just the data tables, or just the vocabulary tables.</li>
+    <li><b>Create Sequences for Primary Keys</b>: This option creates sequences that can be used as primary keys when importing data from other sources such as FHIR. </li>
+    <li><b>Disable/Enable constraints</b>: This option allows for constraints to be disabled and then re-enabled for activities such as bulk uploads.</li>
+  </ul>
 </p>
 
 <!--
@@ -248,13 +265,13 @@ Broadsea provides a turn-key solution with unparalleled ease of use and a standa
 
 <h2>Notes on Resources</h2>
 <p style="text-align: justify;">
-  <p>
+  <p style="text-align: justify;">
     Setting up an OHDSI stack requires multiple resources such as JDBC database drivers, vocabulary files, mapping files, export files, etc. Polites stores these files online and they are downloaded as part of the Polites build process. This eliminates the need to hunt for, find, download, and install these files (often finding the wrong version and needing to start over again).
   </p>
-  <p>
+  <p style="text-align: justify;">
     All of the resources downloaded by Polites can be found in C:\\temp\\Polites. 
   </p>
-  <p>
+  <p style="text-align: justify;">
     <img src="./img/introduction/temp-files.jpg" />
   </p>
 </p>
@@ -267,7 +284,7 @@ Broadsea provides a turn-key solution with unparalleled ease of use and a standa
 
 <h2>Summary</h2>
 <p style="text-align: justify;">
-  <p>
+  <p style="text-align: justify;">
     <ul>
       <li>Polites provides an easy way to create a CDM and connect it to the OHDSI stack implemented by Broadsea</li>
       <li>This process is not only easier, but is also more reliable, consistent, and repeatable</li>
@@ -281,6 +298,7 @@ Broadsea provides a turn-key solution with unparalleled ease of use and a standa
     </ul>
   </p>
 </p>
+
 <!--
 *
 * Polites: What's in a Name
@@ -288,4 +306,12 @@ Broadsea provides a turn-key solution with unparalleled ease of use and a standa
 -->
 
 <h2>Polites: What's in a Name</h2>
+<p style="text-align: justify;">
+  <p style="text-align: justify;">
+    Polites was Odysseus' best friend on the Odyssey. He was one of the first to enter Circe's palace and he was the one to convince Odysseus to leave the island and go back out to the broad sea. Here's George Romney's painting from 1782 of Circe waving good by to Odysseus, Polites, and you as you sail out in to the Broadsea. 
+  </p>
+  <p style="text-align: justify;">
+    <img width="300px" src="./img/introduction/circe.jpg" />
+  </p>
+</p>
 
