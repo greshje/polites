@@ -50,12 +50,12 @@ Getting started with OHDSI using Polites invoves two steps.
 <h2>Install</h2>
 Before running any of the installers shown below, remove any existing versions of the software that may exist. 
 <p style="text-align: justify;">
-  After running YesPolitesInstaller.exe
+  After running YesPolitesInstaller.exe 
   <ul>
     <li>
       <b>RStudio (Optional):</b> Run the installers in the C:\\_YES_POLITES\\tools\\r folder in the order shown below. 
       Note that R has already been installed at C:\\_YES_POLITES\\tools\\r\\R and this folder has been added to your path environment variable. 
-      Installin RStudio is optional. 
+      Installing RStudio is optional. 
       <ul>
         <li>RStudio-2024.04.2-764.exe</li>
         <li>rtools42-5355-5357.exe</li>
