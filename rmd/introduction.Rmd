@@ -90,7 +90,7 @@ Broadsea provides a turn-key solution with unparalleled ease of use and a standa
   <p style="text-align: justify;">
     As an example, lets look at the steps required to manually set up a CDM instance in SQL Server and get Broadsea to point to it. 
   </p>
-  <h4>Set up for Broadsea</h4>
+  <h4>Install Basic Software</h4>
   <ul>
     <li>Install Java (the correct version)</li>
     <li>Install a Git client (a correct version)</li>
@@ -154,6 +154,9 @@ Broadsea provides a turn-key solution with unparalleled ease of use and a standa
     <li>Create the Achilles results database</li>
     <li>Create the Achilles temp database</li>
     <li>Grant appropriate privileges to appropriate users on the Achilles results and temp databases</li>
+  </ul>
+  <h4>Achilles</h4>
+  <ul>
     <li>Run Achilles</li>
   </ul>
 </p>
@@ -174,7 +177,7 @@ Broadsea provides a turn-key solution with unparalleled ease of use and a standa
         <a href="https://www.dropbox.com/scl/fi/4aa2rwf4u9h3p8krrkaem/YesPolitesInstaller-1.1.002.exe?rlkey=y6zy3wmg0hmxdj1e0wnvhn1x6&st=nurxejii&dl=1">YesPolitesInstaller-1.1.002.exe</a>
       </li>
       <li>Run the SQL Server and SSM installerS provided by the YesPolitesInstaller found in c:\\_YES_POLITES\\databases\\sqlserver </li>
-      <li>Run the Docker installer provided by the YesPolitesInstaller found in C:\\_YES_POLITES\\tools\\docker</li>
+      <li>Run the Docker installer provided by the YesPolitesInstaller found in C:\\_YES_POLITES\\tools\\docker and other tools as needed (e.g. R)</li> 
       <li>Install and configure Broadsea by running C:\\_YES_POLITES\\workspace\\install-broadsea.bat</li>
       <li>Start Docker by running C:\\_YES_POLITES\\workspace\\Broadsea\\start.bat</li>
       <li>
