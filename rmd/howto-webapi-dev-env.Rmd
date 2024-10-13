@@ -1,0 +1,27 @@
+---
+title: '<div><img src="ohdsi40x40.png"></img> <b>How to Set up Your WebAPI/Atlas Development Environment</b> </div>'
+output:
+   html_document:
+        toc: TRUE
+        toc_depth: 4
+        toc_float:
+          collapsed: false
+---
+
+<!--
+*
+* Introduction
+*
+-->
+
+<h2>Introduction</h2>
+<p style="text-align: justify;">
+  This document will walk you through setting up a development environment for WebAPI and Atlas development. 
+  This will include
+<ul>
+  <li>Downloading and installing dependent software and tools</li>
+  <li>Forking the projects from Github</li>
+  <li>Running and debuging the applications in your IDE</li>
+  <li>Committing your updated code back up to Github</li>
+  <li>Creating a pull request</li>
+</ul>

@@ -48,9 +48,10 @@ Getting started with OHDSI using Polites invoves two steps.
 -->
 
 <h2>Install</h2>
-Before running any of the installers shown below, remove any existing versions of the software that may exist. 
 <p style="text-align: justify;">
-  After running YesPolitesInstaller.exe 
+  Before running any of the installers shown below, removing any existing versions of the software that may exist is recommended.
+  After running YesPolitesInstaller.exe, the following installers should be run.
+  Installing a database is optional if you will be using the PostgreSql database that is included in Broadsea.
   <ul>
     <li>
       <b>RStudio (Optional):</b> Run the installers in the C:\\_YES_POLITES\\tools\\r folder in the order shown below. 

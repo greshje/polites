@@ -26,4 +26,9 @@ navbar:
           href: sqlserver.html
         - text: "PostgreSql (comming soon)"
         - text: "Docker (comming soon)"
+    - text: "Developer How Tos"
+      icon: fa-list
+      menu:
+        - text: "How To Set up Your WebAPI/Atlas Development Environment"
+          href: howto-webapi-dev-env.html
 
