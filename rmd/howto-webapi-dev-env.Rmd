@@ -33,14 +33,51 @@ output:
 <p style="text-align: justify;">
   Downloading and installing of the the underlying dependent software is described in detail in the 
   <a href="./quick-start.html">Quickstart Guide</a> (The Run section at the very end of the document can be skipped). 
-  All of the underlying software required for your development environment will be installed by following these instructions. 
+  All of the underlying software required for your development environment will be installed by following these instructions,
+  except for the IDE. The IDE will be installed separately.
+  In this case Eclipse will be used as described below.
   The process consists of basically downloading and running an installer 
   and then running a couple of installers that could not be automated. 
   Details on exactly what software is installed can be found in the Prerequisites section of the
   <a href="./introduction.html">Introduction</a> documentation. 
 </p>
 
+<h2>Fork WebAPI</h2>
+<p style="text-align: justify;">
+  In order to manage our changes and keep them as isolated as possible we will be forking and branching our code.
+  Forking means creating a copy of a repository in another users account.
+  Branching means creating a copy of the code base in the same repository.
+  To create a fork of the WebAPI project, log in to your personal Github account and navigate to 
+  <a href="https://github.com/OHDSI/WebApi">https://github.com/OHDSI/WebApi</a>.
+  In the upper right corner, select "fork" and then "create new fork". 
+  <br/>
+  <img src="./img/dev-env/fork.png" />
+  <br/>
+  <br/>
+  If we now go back to our own account and repositories, we should see a copy of WebAPI. 
+  <br/>
+  <img src="./img/dev-env/forked.png" />
+  <br/>
+  <br/>
+  We can now create the branch we are going to work in by navigating to our fork of the repository 
+  (for me this is https://github.com/greshje/WebAPI)
+  and then selecting the branches dropdown, entering the name of the branch we want to create,
+  and then selecting Create Branch as shown below.
+  <br/>
+  <img src="./img/dev-env/create-branch.png" />
+  <br/>
+  <br/>
+  Next we clone our fork of the repository and checkout the branch we've created
+  by opening a cmd window, navigating to our workspace folder and executing the commands shown below.
+  (be sure to use the url for your fork, i.e. your personal github account)
+<pre class="pre-scrollable">
+git clone https://github.com/greshje/WebAPI
+cd WebAPI
+git checkout gresh-test-2024-10-13
+</pre>
+<img src="./img/dev-env/clone.png" />
 
+</p>
 
 
 
