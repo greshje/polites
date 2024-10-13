@@ -92,9 +92,44 @@ Getting started with OHDSI using Polites invoves two steps.
 <h2>Run Broadsea</h2>
 
 <p style="text-align: justify;">
-  Broadsea can be downloaded, configured, and started simply by starting Docker 
-  and then running the install-broadsea.bat file found in _YES_POLITES/workspace. 
+  Broadsea can be downloaded and configured by simply running the install-broadsea.bat file found in _YES_POLITES/workspace. 
+  After the script completes, Broadsea can be launched by simply starting Docker and then running the C:\\_YES_POLITES\\workspace\\Broadsea\\start.bat file. 
 </p>
+
+<!--
+*
+* Notes on Docker scripts
+*
+-->
+
+<h2>Notes on Docker scripts</h2>
+<p style="text-align: justify;">
+  <p style="text-align: justify;">
+    Polites includes a number of scripts in the C:\\_YES_POLITES\\workspace\\Broadsea directory to make common tasks for Docker easer.  These scripts include the following:
+    <ul>
+      <li>
+        <b>start.bat:</b> This script will start Docker using the appropriate settings for Broadsea. 
+      </li>
+      <li>
+        <b>stop.bat:</b> This script will stop Docker using the appropriate settings for Broadsea. 
+      </li>
+      <li>
+        <b>clean-docker.sh:</b> This script will remove all images, containers, and volumes from Docker.  
+      </li>
+      <li>
+        <b>reset.bat</b>: This script will keep the Postgres database used by Broadsea and remove all other images, containers, and volumes from Docker.  
+      </li>
+      <li>
+        <b>show-docker.bat</b>: This script will show all of the images, containers, and volumes currently in Docker. 
+      </li>
+      <li>
+        <b>export-demo_db.bat</b>: This script can be used to export the demo_cdm as csv files.
+      </li>
+    </ul>
+    
+  </p>
+</p>
+
 
 <!--
 *
