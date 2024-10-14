@@ -93,6 +93,28 @@ git checkout gresh-test-2024-10-13
 
 <!--
 *
+* Start Broadsea
+*
+-->
+
+<h2>Start Broadsea</h2>
+<p style="text-align: justify;">
+  Start Docker Desktop if it is not already running.
+  Start Broadsea by executing C:\\_YES_POLITES\\workspace\\Broadsea\\start.bat
+  If you want to make sure you are using a fresh install of Broad sea, run clean-docker.sh before starting Broadsea.
+  clean-docker.sh will remove ALL containerized applications from your Docker instance.
+  This can be confirmed by running show-docker.bat.
+  The show-docker.bat script will show all of the volumes, images, and containers that exist on the Docker instance.
+<pre class="pre-scrollable">
+clean-docker.sh
+show-docker.bat
+start.bat
+stop.bat
+</pre>
+</p>
+
+<!--
+*
 * Open in Eclipse
 *
 -->
