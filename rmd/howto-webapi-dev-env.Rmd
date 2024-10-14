@@ -50,19 +50,9 @@ output:
 
 <!--
 *
-* Install Eclipse
+* Fork
 *
 -->
-
-<h2>Install Eclipse</h2>
-<p style="text-align: justify;">
-  Eclipse can be installed by downloaded and running the installer available 
-  <a href="https://www.dropbox.com/scl/fi/4ei174qjo9zknpkm3sxhf/eclipse-jee-2024-06-R-win32-x86_64.zip?rlkey=jqyl153992l9hiqgo80njju7t&st=a7ho98xo&dl=1">here</a>.
-  Download this file, copy it to the _YES_POLITES folder, and extract it.
-  Navigate to C:\\_YES_POLITES\\eclipse-jee-2024-06-R-win32-x86_64\\eclipse
-  and click on eclipse.exe to start eclipse.
-  Change the workspace to C:\\_YES_POLITES\\workspace.
-</p>
 
 <h2>Fork WebAPI</h2>
 <p style="text-align: justify;">
@@ -101,5 +91,40 @@ git checkout gresh-test-2024-10-13
 
 </p>
 
+<!--
+*
+* Open in Eclipse
+*
+-->
 
+<h2>Open in Eclipse</h2>
+<p style="text-align: justify;">
+  An instance of Eclipse is included in the _YES_POLITES installation.
+  Open Eclipse by executing C:\\_YES_POLITES\\eclipse\\eclipse.exe (use the default workspace).
+  Import the WebAPI project by right clicking on the Navigator pain and selecting import...
+  <br/>
+  <img src="./img/dev-env/import.png" />
+  <br/>
+  <br/>
+  Select Maven->Existing Maven Projects.
+  <br/>
+  <img src="./img/dev-env/select-existing.png" />
+  <br/>
+  <br/>
+  Navigate to the C:\\_YES_POLITES\\workspace\\WebAPI folder.
+  <img src="./img/dev-env/select-webapi.png" />
+  <br/>
+  <br/>
+
+<!--
+*
+* Configure Project
+*
+-->
+
+<h2>Configure Project</h2>
+<p style="text-align: justify;">
+</p>
+  
+</p>
 

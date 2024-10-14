@@ -174,7 +174,7 @@ Broadsea provides a turn-key solution with unparalleled ease of use and a standa
     <ol>
       <li>
         Download and run the 
-        <a href="https://www.dropbox.com/scl/fi/4aa2rwf4u9h3p8krrkaem/YesPolitesInstaller-1.1.002.exe?rlkey=y6zy3wmg0hmxdj1e0wnvhn1x6&st=nurxejii&dl=1">YesPolitesInstaller-1.1.002.exe</a>
+        <a href="https://www.dropbox.com/scl/fi/b7ndh8qupytkvnaayw4sr/YesPolitesInstaller-1.2.049.exe?rlkey=98gfu5xq0jd0e6zirsbmuuo0e&st=ari6vnap&dl=1">YesPolitesInstaller.exe</a>
       </li>
       <li>Run the SQL Server and SSM installerS provided by the YesPolitesInstaller found in c:\\_YES_POLITES\\databases\\sqlserver </li>
       <li>Run the Docker installer provided by the YesPolitesInstaller found in C:\\_YES_POLITES\\tools\\docker and other tools as needed (e.g. R)</li> 
