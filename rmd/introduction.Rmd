@@ -1,5 +1,5 @@
 ---
-title: '<div><img class="worker" src="ohdsi40x40.png"></img> <b>Polites Introduction</b> </div>'
+title: '<div><img class="worker" src="ohdsi40x40.png"></img> <b>Polites and Broadsea Background</b> </div>'
 output:
    html_document:
         toc: TRUE
@@ -48,7 +48,7 @@ output:
 *
 -->
 
-<h2>Polites and Broadsea in a Nutshell</h2>
+<h2>In a Nutshell</h2>
 <p style="text-align: justify;">
 Polites is a Java based tool that enables the automation of complete OHDSI implementations for Broadsea based OHDSI deployments. 
 </p>

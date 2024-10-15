@@ -18,7 +18,7 @@ navbar:
       menu:
         - text: "Home"
           href: index.html
-        - text: "Introduction"
+        - text: "Background"
           href: introduction.html
         - text: "Quick Start Guide"
           href: quick-start.html
