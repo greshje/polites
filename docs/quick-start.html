@@ -346,11 +346,16 @@ div.tocify {
     <li>
       <a href="quick-start.html">Quick Start Guide</a>
     </li>
-    <li>
-      <a href="sqlserver.html">Microsoft SqlServer</a>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Implementations</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="sqlserver.html">Microsoft SqlServer</a>
+        </li>
+        <li class="dropdown-header">PostgreSql (comming soon)</li>
+        <li class="dropdown-header">Docker (comming soon)</li>
+      </ul>
     </li>
-    <li class="dropdown-header">PostgreSql (comming soon)</li>
-    <li class="dropdown-header">Docker (comming soon)</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -442,17 +447,22 @@ Running Polites
 </ul>
 <!--
 *
-* Download
+* Install Dependencies
 *
 -->
 <h2>
-Download
+Install Dependencies
 </h2>
 <p style="text-align: justify;">
+Installing and setting up an OHDSI CDM requires a number of software
+packages therefore Polites requires a number of software packages. Most
+of these dependencies can be installed an configured automatically using
+the
+<a href="https://www.dropbox.com/scl/fi/b7ndh8qupytkvnaayw4sr/YesPolitesInstaller-1.2.049.exe?rlkey=98gfu5xq0jd0e6zirsbmuuo0e&st=ari6vnap&dl=1">YesPolitesInstaller.exe</a>.
 To download and install dependent software download and run the
 <a href="https://www.dropbox.com/scl/fi/b7ndh8qupytkvnaayw4sr/YesPolitesInstaller-1.2.049.exe?rlkey=98gfu5xq0jd0e6zirsbmuuo0e&st=ari6vnap&dl=1">YesPolitesInstaller.exe</a>.
 This will install the C:\_YES_POLITES folder. The installer gives you
-the option to install at a different location. If you istall at a
+the option to install at a different location. If you install at a
 different location, the installer will create _YES_POLITES as a short
 cut to that location. For example, I generally install things to my D:
 drive as I have little space left on my C: drive.
@@ -462,18 +472,19 @@ drive as I have little space left on my C: drive.
 </p>
 <!--
 *
-* Install
+* Manual Installations
 *
 -->
 <h2>
-Install
+Manual Installations
 </h2>
 <p style="text-align: justify;">
-Before running any of the installers shown below, removing any existing
-versions of the software that may exist is recommended. After running
-YesPolitesInstaller.exe, the following installers should be run.
-Installing a database is optional if you will be using the PostgreSql
-database that is included in Broadsea.
+There are a few installations that need to be done manually as shown
+below. After running YesPolitesInstaller.exe, the following installers
+should be run. Installing a database is optional if you will be using
+the PostgreSql database that is included in Broadsea. Before running any
+of the installers shown below, removing any existing versions of the
+software that may exist is recommended.
 <ul>
 <li>
 <b>RStudio (Optional):</b> Run the installers in the
