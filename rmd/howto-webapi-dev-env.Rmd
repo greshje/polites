@@ -193,6 +193,21 @@ stop.bat
 
 <!--
 *
+* add settings.xml file
+*
+-->
+
+<h2>Add settings.xml File</h2>
+<p style="text-align: justify;">
+  WebXML requires a configuration file.
+  Create a top level folder called WebAPIConfig.
+  Add this <a href="./img/dev-env/settings.xml" download>settings.xml</a> file to that folder.
+  <br/>
+  <img src="./img/dev-env/settings-xml.png" />
+</p>
+
+<!--
+*
 * Configure Project
 *
 -->
@@ -205,6 +220,7 @@ stop.bat
 <pre class="pre-scrollable">
 mvn clean package -DskipUnitTests -DskipITtests -s WebAPIConfig/settings.xml -P webapi-postgresql
 </pre>
+  <!-- set settings.xml -->
   <h3>Set settings.xml</h3>
   The WebAPIConfig/settings.xml file added earlier will be used for the settings file.
   To set this as the settings file, select Window->Preferences.
@@ -212,6 +228,7 @@ mvn clean package -DskipUnitTests -DskipITtests -s WebAPIConfig/settings.xml -P 
   In the User settings option, Browse to the WebAPIConfig/settings.xml file and select Apply and Close.
   <br/>
   <img src="./img/dev-env/settings.png" />
+  <!-- set profile -->
   <h3>Set profile</h3>
   To set the profile, right click on the WebAPI project then select Properties.
   In the Active Maven Profiles text box enter webapi-postgresql.

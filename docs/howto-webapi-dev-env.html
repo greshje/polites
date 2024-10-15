@@ -573,6 +573,20 @@ the C:\_YES_POLITES\workspace\WebAPI folder.
 <img src="img/dev-env/select-webapi.png" /> <br/> <br/></p>
 <!--
 *
+* add settings.xml file
+*
+-->
+<h2>
+Add settings.xml File
+</h2>
+<p style="text-align: justify;">
+WebXML requires a configuration file. Create a top level folder called
+WebAPIConfig. Add this
+<a href="./img/dev-env/settings.xml" download>settings.xml</a> file to
+that folder. <br/> <img src="img/dev-env/settings-xml.png" />
+</p>
+<!--
+*
 * Configure Project
 *
 -->
@@ -587,6 +601,7 @@ as shown below.
 <pre class="pre-scrollable">
 mvn clean package -DskipUnitTests -DskipITtests -s WebAPIConfig/settings.xml -P webapi-postgresql
 </pre>
+<!-- set settings.xml -->
 <h3>
 Set settings.xml
 </h3>
@@ -595,7 +610,7 @@ settings file. To set this as the settings file, select
 Window-&gt;Preferences. Search for settings, then select User Settings.
 In the User settings option, Browse to the WebAPIConfig/settings.xml
 file and select Apply and Close. <br/>
-<img src="img/dev-env/settings.png" />
+<img src="img/dev-env/settings.png" /> <!-- set profile -->
 <h3>
 Set profile
 </h3>
