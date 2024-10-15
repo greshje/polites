@@ -267,6 +267,22 @@ http://localhost:8080/WebAPI/featureextraction/defaultcovariatesettings/
   <img src="./img/dev-env/success.png" />
 </p>
 
+<!--
+*
+* Debugging
+*
+-->
 
+<h2>Debugging</h2>
+<p style="text-align: justify;">
+  To step through code, set a break point by double clicking in the gutter to the left of the line number.
+  Step, step into, step out of, etc. are at the top of the screen.
+  For this example we set a break point on line number 33 of the FeatureExtractionService class.
+  The service was then called to get to the break point.
+<pre class="pre-scrollable">
+http://localhost:8080/WebAPI/featureextraction/defaultcovariatesettings/
+</pre>
+  <img src="./img/dev-env/debug.png" />
+</p>
 
 
