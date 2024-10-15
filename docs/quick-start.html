@@ -324,7 +324,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html"><div><img src="ohdsi16x16.png"></img> Polites </div></a>
+      <a class="navbar-brand" href="index.html"><div><img class="worker" src="ohdsi16x16.png"></img> Polites </div></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -384,12 +384,44 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore"><img src="ohdsi40x40.png"></img> <b>Polites
-Quick Start Guide</b></h1>
+<h1 class="title toc-ignore"><img class="worker" src="ohdsi40x40.png"></img>
+<b>Polites Quick Start Guide</b></h1>
 
 </div>
 
 
+<!--
+*
+* Javascript
+*
+-->
+<script>
+  // Function to open the full-size image in a full-screen window
+  function openFullSizeImage(imageElement) {
+    // Get the screen width and height
+    const screenWidth = screen.width;
+    const screenHeight = screen.height;
+
+    // Open the image in a new window with full screen size
+    window.open(imageElement.src, '_blank', `width=${screenWidth},height=${screenHeight},top=0,left=0`);
+  }
+
+  // Assign the onclick and title to all images, except those with the class "worker"
+  window.onload = function() {
+    // Get all img elements
+    const images = document.querySelectorAll('img');
+
+    // Loop through each image and set the onclick and title, but skip those with class "worker"
+    images.forEach(function(img) {
+      if (!img.classList.contains('worker')) {
+        img.onclick = function() {
+          openFullSizeImage(this);
+        };
+        img.title = 'Click to see full size.';
+      }
+    });
+  };
+</script>
 <!--
 *
 * Introduction

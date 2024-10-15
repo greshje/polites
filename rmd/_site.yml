@@ -8,7 +8,7 @@ output:
       in_header: "favicon.html"
 exclude: ["extras"]
 navbar:
-  title: '<div><img src="ohdsi16x16.png"></img> Polites </div>'
+  title: '<div><img class="worker" src="ohdsi16x16.png"></img> Polites </div>'
   right:
     - icon: fa-github
       href: https://github.com/NACHC-CAD/polites

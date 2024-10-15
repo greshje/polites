@@ -1,5 +1,5 @@
 ---
-title: '<div><img src="ohdsi40x40.png"></img> <b>Polites</b> </div>'
+title: '<div><img class="worker" src="ohdsi40x40.png"></img> <b>Polites</b> </div>'
 output:
    html_document:
         toc: TRUE
@@ -7,6 +7,41 @@ output:
         toc_float:
           collapsed: false
 ---
+
+<!--
+*
+* Javascript
+*
+-->
+
+
+<script>
+  // Function to open the full-size image in a full-screen window
+  function openFullSizeImage(imageElement) {
+    // Get the screen width and height
+    const screenWidth = screen.width;
+    const screenHeight = screen.height;
+
+    // Open the image in a new window with full screen size
+    window.open(imageElement.src, '_blank', `width=${screenWidth},height=${screenHeight},top=0,left=0`);
+  }
+
+  // Assign the onclick and title to all images, except those with the class "worker"
+  window.onload = function() {
+    // Get all img elements
+    const images = document.querySelectorAll('img');
+
+    // Loop through each image and set the onclick and title, but skip those with class "worker"
+    images.forEach(function(img) {
+      if (!img.classList.contains('worker')) {
+        img.onclick = function() {
+          openFullSizeImage(this);
+        };
+        img.title = 'Click to see full size.';
+      }
+    });
+  };
+</script>
 
 <!--
 *
