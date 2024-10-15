@@ -67,161 +67,9 @@ output:
 
 <!--
 *
-* Installation Overview
+* Platform Details
 *
 -->
-
-<h2>Prerequisites</h2>
-
-<h3>Prerequisites Overview</h3>
-<p>
-  Installing and running Polites consists of the following steps. 
-  These steps can be done manually or can be done using the Yes installer 
-  described in the Automated Installation of Prerequisiets section below. 
-  <ul>
-    <li>
-      Install the dependencies for Polites and Broadsea. 
-      These include the following:
-        <ul>
-          <li>
-            Java version 8 and 11
-          </li>
-          <li>
-            A git client
-          </li>
-          <li>
-            R and RStudio
-          </li>
-          <li>
-            Microsoft SqlServer
-          </li>
-          <li>
-            Docker
-          </li>
-        </ul>
-    </li>
-    <li>
-      Install, Configure and Run Broadsea
-    </li>
-    <li>
-      Install and Configure Polites
-    </li>
-    <li>
-      Run Polites
-    </li>
-  </ul>
-</p>
-
-<!--
-*
-* Automated Installation of Prerequisites
-*
--->
-
-<!-- Prerequisites Installation -->
-<h3>Prerequisites Installation</h3>
-
-<!-- Run the YesPolitesInstaller -->
-<h4>Run the YesPolitesInstaller</h4>
-All of the prerequisites for Broadsea and Polites can be installed using the YesPolitesInstaller. 
-Download the 
-<a href="https://www.dropbox.com/scl/fi/b7ndh8qupytkvnaayw4sr/YesPolitesInstaller-1.2.049.exe?rlkey=98gfu5xq0jd0e6zirsbmuuo0e&st=ari6vnap&dl=1">
-  YesPolitesInstaller.exe
-</a> file and run it. 
-Downloading and running this file does take a few minutes. 
-The installer creates a directory called _YES_POLITES that contains resources needed for Broadsea and other OHDSI tools 
-and also installs and configures other required resources. 
-Overall, the installer does the following: 
-
-<ul>
-  <li>
-    Installs a git client that will be used to download and install Broadsea and other resources. 
-    (the installation will also configure the certificates used by this client) 
-  </li>
-
-  <li>
-    Installs Java 8 and Java 11
-  </li>
-
-  <li>
-    Installs a number of .bat files including the following:
-    <ul>
-      <li>jv: Changes the Java version to 8 or 11</li>
-      <li>git-detials: gives the git information about the current repository
-    </ul>
-  </li>
-
-  <li>
-    Downloads a copy of the installer for Docker 
-    (this insures that all instances of Polites are using the same version of Docker). 
-  </li>
-
-  <li>
-    Downloads installers for the databases supported by polites
-  </li>
-
-  <li>
-    Installs the correct version of R
-  </li>
-
-  <li>
-    Downloads installers for RStudio and RTools
-  </li>
-
-  <li>
-    Installs database specific dependencies 
-    (e.g. installs and configures the JDBC DLL required by Sql Server and updates environment variables to point to the correct version of this DLL)
-  </li>
-
-  <li>
-    Updates the system environment variables to put required tools on the system path
-  </li>
-</ul>
-
-<!-- Install Docker -->
-<h4>Install Docker</h4>
-Navigate to C:\\_YES_POLITES\\tools\\docker and run the Docker Desktop Installer.exe file. 
-Accept all of the default values. 
-<br/>
-<img src="./img/index/install-docker.png" />
-<br/>
-
-<!-- Install Broadsea -->
-<h4>Install Broadsea</h4>
-Broadsea can be installed and configured by running the C:\\_YES_POLITES\\workspace\\install-broadsea.bat file. 
-This process will install Broadsea v3.0.0 and update the configuration for the current installation. 
-This process also puts the following .bat files in the Broadsea directory. 
-These .bat files can be used to manage Broadsea. 
-<ul>
-  <li>
-    start.bat<br/>
-    This script will start Broadsea
-  </li>
-  <li>
-    stop.bat<br/>
-    This script will stop Broadsea
-  </li>
-  <li>
-    clean-docker.sh<br/>
-    This script will delete all images, containers, and volumes from Docker
-  </li>
-  <li>
-    reset.bat<br/>
-    This script will clear Docker of all images, containers, and volumes 
-    but will preserve the data stored in the Postgres database used by Broadsea
-  </li>
-  <li>
-    show-docker.bat<br/>
-    This script will show the images, containers, and volumes that exist in Docker
-  </li>
-</ul>
-
-<!-- Start Broadsea -->
-<h4>Start Broadsea</h4>
-Before running Broadsea you will need to start Docker Desktop 
-(there should be a shortcut on your desktop from the initial installation). 
-To run Broadsea, open a cmd prompt, navigate to C:\\_YES_POLITES\\workspace\\Broadsea 
-and then execute the start.bat script. 
 
 <h2>Platform Details</h2>
 
@@ -240,37 +88,6 @@ Execute the process for the platform you are targeting.
       Databricks (coming soon)
     </li>
   </ul>
-
-
-<!--
-*
-* Polites Installation
-*
--->
-
-<h2>Polites Installation</h2>
-<p>
-  Polites is installed by Downloading the zip file from the latest release, 
-  Unziping the files, and then running the polites.bat file 
-  (which runs "java -jar polites.jar" with some additional performance parameters). 
-  Releases of Polites can be found at 
-  <a href="https://github.com/NACHC-CAD/polites/releases">https://github.com/NACHC-CAD/polites/releases</a>.
-  <br/>
-  <img src="./img/index/download.png" />
-</p>
-<p>
-  After downloading and extracting the zip file you should see the following files. 
-  <br/>
-  <img src="img/index/extracted.png" />
-  <br/>
-  The auth folder contains two files: app.properties and sqlserver-demo-app.properties. 
-  The sqlserver-demo-app.properties file contains and example configuration for Microsoft SqlServer 
-  that should work out of the box. The app.properties file contains a single line 
-  that points to the actual configuration file. This alows the configuration file 
-  and any sensitive information this file might contain such as passwords to exist 
-  anywhere that is accessible by the file system. 
-</p>
-
 
 <!--
 *
@@ -661,12 +478,5 @@ SyntheaVersion=3.2.0
   More information on Achilles is available at the github site for 
   <a href="https://github.com/OHDSI/Achilles">Achilles</a>.
 </p>
-
-<h2>Huzzah!</h2>
-After using the above functionality to create and populate your OHDSI Instance 
-you are now ready to start using the OHDSI tools to view and manipulate your data. 
-<h3>Atlas</h3>
-With Broadsea running, you should now be able to launch Atlas by opening a browser 
-and navigating to <a href="http://127.0.0.1/atlas">http://127.0.0.1/atlas</a>. 
 
 
