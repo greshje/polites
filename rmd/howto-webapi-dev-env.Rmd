@@ -262,7 +262,7 @@ mvn clean package -DskipUnitTests -DskipITtests -s WebAPIConfig/settings.xml -P 
   For this example the url below can be used.
   A successful outcome should look something like the screen shot shown below.
 <pre class="pre-scrollable">
-http://localhost:8080/WebAPI//featureextraction/defaultcovariatesettings/
+http://localhost:8080/WebAPI/featureextraction/defaultcovariatesettings/
 </pre>
   <img src="./img/dev-env/success.png" />
 </p>
