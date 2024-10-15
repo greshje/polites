@@ -215,5 +215,23 @@ mvn clean package -DskipUnitTests -DskipITtests -s WebAPIConfig/settings.xml -P 
   <img src="./img/dev-env/start-server.png" />
 </p>
   
+<!--
+*
+* Confirm Success
+*
+-->
+
+<h2>Confirm Success</h2>
+<p style="text-align: justify;">
+  We can confirm that we have successfully deployed the service by opening a browser and calling one of the end points.
+  For this example the url below can be used.
+  A successful outcome should look something like the screen shot shown below.
+<pre class="pre-scrollable">
+http://localhost:8080/WebAPI//featureextraction/defaultcovariatesettings/
+</pre>
+  <img src="./img/dev-env/success.png" />
 </p>
+
+
+
 
