@@ -303,4 +303,25 @@ http://localhost:8080/WebAPI/featureextraction/defaultcovariatesettings/
   <img src="./img/dev-env/debug.png" />
 </p>
 
+<!--
+*
+* Additional Resources
+*
+-->
+
+<h2>Additional Resources</h2>
+<p style="text-align: justify;">
+  Some additional resources that might be useful include the following.
+  <ul>
+    <li>
+      <b>API Documentation:</b> Documentation for the endpoints of WebAPI is available at
+      <a href="http://webapidoc.ohdsi.org/" />http://webapidoc.ohdsi.org/</a>.
+      Note that the endpoints are in groups on the right side of the page.
+    </li>
+  </ul>
+</p>
+
+
+
+
 
