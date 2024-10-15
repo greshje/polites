@@ -202,6 +202,7 @@ stop.bat
   WebXML requires a configuration file.
   Create a top level folder called WebAPIConfig.
   Add this <a href="./img/dev-env/settings.xml" download>settings.xml</a> file to that folder.
+  (you'll need to right click and select download as this server does not support downloadable links for security purposes).
   <br/>
   <img src="./img/dev-env/settings-xml.png" />
 </p>
