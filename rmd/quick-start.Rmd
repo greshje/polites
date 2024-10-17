@@ -223,4 +223,4 @@ Getting started with OHDSI using Polites invoves two steps.
 <br/>
 <br/>
 <br/>
-<a href="https://www.dropbox.com/scl/fi/8q0i1oyc7wdi8mub8xxw2/YesPolitesInstaller-1.2.051.exe?rlkey=9ssnfeqxrcfra3cqyiovrkdlf&dl=1">Version-1.2.051</a>
+<a href="https://www.dropbox.com/scl/fi/xypm80goyvaaju1coryhw/YesPolitesInstaller-1.2.053.exe?rlkey=n6wtj87zn5ocak2a051y1whdn&dl=1">Version-1.2.053</a>
