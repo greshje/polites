@@ -68,9 +68,9 @@ Getting started with OHDSI using Polites invoves two steps.
   Installing and setting up an OHDSI CDM requires a number of software packages
   therefore Polites requires a number of software packages.
   Most of these dependencies can be installed an configured automatically using the 
-  <a href="https://www.dropbox.com/scl/fi/b7ndh8qupytkvnaayw4sr/YesPolitesInstaller-1.2.049.exe?rlkey=98gfu5xq0jd0e6zirsbmuuo0e&st=ari6vnap&dl=1">YesPolitesInstaller.exe</a>. 
+  <a href="https://www.dropbox.com/scl/fi/boxqxjik8zqpsrsu3ojbv/YesPolitesInstaller-1.2.054.exe?rlkey=ncox07wqhhnnxfb8rttxh45it&dl=1">YesPolitesInstaller.exe</a>. 
   To download and install dependent software download and run the 
-  <a href="https://www.dropbox.com/scl/fi/b7ndh8qupytkvnaayw4sr/YesPolitesInstaller-1.2.049.exe?rlkey=98gfu5xq0jd0e6zirsbmuuo0e&st=ari6vnap&dl=1">YesPolitesInstaller.exe</a>. 
+  <a href="https://www.dropbox.com/scl/fi/boxqxjik8zqpsrsu3ojbv/YesPolitesInstaller-1.2.054.exe?rlkey=ncox07wqhhnnxfb8rttxh45it&dl=1">YesPolitesInstaller.exe</a>. 
   This will install the C:\\_YES_POLITES folder.
   The installer gives you the option to install at a different location. 
   If you install at a different location, the installer will create _YES_POLITES as a short cut to that location. 
@@ -223,4 +223,7 @@ Getting started with OHDSI using Polites invoves two steps.
 <br/>
 <br/>
 <br/>
+<!--
 <a href="https://www.dropbox.com/scl/fi/boxqxjik8zqpsrsu3ojbv/YesPolitesInstaller-1.2.054.exe?rlkey=ncox07wqhhnnxfb8rttxh45it&dl=1">Version-1.2.054</a>
+-->
+
