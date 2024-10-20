@@ -95,31 +95,63 @@ Getting started with OHDSI using Polites invoves two steps.
   Before running any of the installers shown below, removing any existing versions of the software that may exist is recommended.
   <ul>
     <li>
-      <b>RStudio (Optional):</b> Run the installers in the C:\\_YES_POLITES\\tools\\r folder in the order shown below. 
-      Note that R has already been installed at C:\\_YES_POLITES\\tools\\r\\R and this folder has been added to your path environment variable. 
-      Installing RStudio is optional. 
-      <ul>
-        <li>RStudio-2024.04.2-764.exe</li>
-        <li>rtools42-5355-5357.exe</li>
-      </ul>
+      <p style="text-align: justify;">
+        <b>RStudio (Optional):</b> Run the installers in the C:\\_YES_POLITES\\tools\\r folder in the order shown below.
+        Note that R has already been installed at C:\\_YES_POLITES\\tools\\r\\R
+        and this folder has been added to your path environment variable.
+        Installing RStudio is optional.
+        <ul>
+          <li>RStudio-2024.04.2-764.exe</li>
+          <li>rtools42-5355-5357.exe</li>
+        </ul>
+      </p>
     </li>
-    <li><b>Docker: </b>Run C:\\_YES_POLITES\\docker\\Docker Desktop Installer.exe/li>
+    <li>
+      <p style="text-align: justify;">
+        <b>Docker: </b>
+        <br/>
+        Update the wsl before installing Docker
+        by running wsl &minus;&minus;update from a cmd window.
+        <br/>
+        Run C:\\_YES_POLITES\\docker\\Docker Desktop Installer.exe.
+      </p>
+    <li>
+      <p style="text-align: justify;">
+        <b>Cygwin:</b>
+        Install Cygwin by running the setup .exe file in C:\\_YES_POLITES\\tools\\cygwin
+        <br/>
+        Associate Cygwin with .sh files: 
+        <ul>
+          <li>Create an empty .sh file.</li>
+          <li>Right click on the file and select run as.</li>
+          <li>Select C:\\cygwin64\\bin\\mintty.exe as the application to use.</li>
+          <li>Select Always.</li>
+        </ul> 
+      </p>
+    </li>
     <li>
       <b>Database:</b> 
-      Run any installers specific to the DBMS system you are using. 
-      These installers are found in C:\\_YES_POLITES\\databases. 
-      For example, if you are using Microsoft SQL Server, run the installers shown below 
-      (Note that the JDBC driver and .dll files required for SQL Server have already been installed in the sqlserver\\sqljdbc_12.6.2.0_enu folder and this folder has been added to your path environment variable). 
-      After running the above installers, open a cmd window as Administrator 
-      and run the init-sql-server.bat script. 
-      Running this script will update Sql Server configurations required for Broadsea 
-      such as mixed authentication mode and TCP/IP access. 
-      This script must be run as Administrator or it will not work. 
-      <ul>
-        <li>SQL2019-SSEI-Eval.exe</li>
-        <li>SSMS-Setup-ENU-20.2.exe</li>
-        <li>init-sql-server.bat</li>
-      </ul>
+      <p style="text-align: justify;">
+        Note: Skip this step if you are setting up your WebAPI/Atlas development environment.
+        <br/>
+        Run any installers specific to the DBMS system you are using.
+        These installers are found in C:\\_YES_POLITES\\databases.
+        For example, if you are using Microsoft SQL Server, run the installers shown below
+        (Note that the JDBC driver and .dll files required for SQL Server
+        have already been installed in the sqlserver\\sqljdbc_12.6.2.0_enu folder
+        and this folder has been added to your path environment variable).
+        After running the above installers, open a cmd window as Administrator
+        and run the init-sql-server.bat script.
+        Running this script will update Sql Server configurations required for Broadsea
+        such as mixed authentication mode and TCP/IP access.
+        This script must be run as Administrator or it will not work.
+        <ul>
+          <li>SQL2019-SSEI-Eval.exe</li>
+          <li>SSMS-Setup-ENU-20.2.exe</li>
+          <li>init-sql-server.bat</li>
+        </ul>
+      </p>
+    </li>
   </ul>
 </p>  
 
