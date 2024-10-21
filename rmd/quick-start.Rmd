@@ -96,7 +96,9 @@ Getting started with OHDSI using Polites invoves two steps.
   <ul>
     <li>
       <p style="text-align: justify;">
-        <b>RStudio (Optional):</b> Run the installers in the C:\\_YES_POLITES\\tools\\r folder in the order shown below.
+        <b>RStudio (Optional):</b>
+        <br/>
+        Run the installers in the C:\\_YES_POLITES\\tools\\r folder in the order shown below.
         Note that R has already been installed at C:\\_YES_POLITES\\tools\\r\\R
         and this folder has been added to your path environment variable.
         Installing RStudio is optional.
@@ -117,16 +119,9 @@ Getting started with OHDSI using Polites invoves two steps.
       </p>
     <li>
       <p style="text-align: justify;">
-        <b>Cygwin:</b>
-        Install Cygwin by running the setup .exe file in C:\\_YES_POLITES\\tools\\cygwin
+        <b>RTools:</b>
         <br/>
-        Associate Cygwin with .sh files: 
-        <ul>
-          <li>Create an empty .sh file.</li>
-          <li>Right click on the file and select run as.</li>
-          <li>Select C:\\cygwin64\\bin\\mintty.exe as the application to use.</li>
-          <li>Select Always.</li>
-        </ul> 
+        Install RTools by running the RTools setup .exe file in C:\\_YES_POLITES\\tools\\r
       </p>
     </li>
     <li>
