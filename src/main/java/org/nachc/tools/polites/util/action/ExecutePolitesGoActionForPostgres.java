@@ -21,6 +21,7 @@ import org.nachc.tools.fhirtoomop.tools.build.postgres.build.VOC99_LoadTerminolo
 import org.nachc.tools.fhirtoomop.tools.download.terminology.DownloadDefaultTerminology;
 import org.nachc.tools.fhirtoomop.util.db.truncate.impl.TruncateTablesForPostgres;
 import org.nachc.tools.fhirtoomop.util.params.AppParams;
+import org.nachc.tools.fhirtoomop.util.postgres.exporttables.ExportTablesForPostgres;
 import org.nachc.tools.fhirtoomop.util.sqlserver.ExportTables;
 import org.nachc.tools.polites.util.connection.PolitesPostgresConnectionFactory;
 import org.yaorma.database.Database;
@@ -139,9 +140,10 @@ public class ExecutePolitesGoActionForPostgres {
 				log.info("Done importing.");
 			}
 			if (sel.contains("exportDataTables")) {
+				// TODO: IMPLEMENT THIS
 				log("EXPORTING DATA TABLES");
-				//				use(conn);
-				//				ExportTables.exportDataTables();
+				use(conn);
+				ExportTablesForPostgres.exportDataTables(conn);
 				log.info("Done exporting.");
 			}
 			// truncate, import, and export all tables
@@ -152,12 +154,14 @@ public class ExecutePolitesGoActionForPostgres {
 				log.info("Done truncating.");
 			}
 			if (sel.contains("importAll")) {
+				// TODO: IMPLEMENT THIS
 				log("IMPORTING ALL TABLES");
 				//				use(conn);
 				//				UploadCsvForSqlServer.uploadAll();
 				log.info("Done importing.");
 			}
 			if (sel.contains("exportAll")) {
+				// TODO: IMPLEMENT THIS
 				log("EXPORTING ALL TABLES");
 				//				use(conn);
 				//				ExportTables.exportAllCdmTables();
@@ -172,30 +176,35 @@ public class ExecutePolitesGoActionForPostgres {
 			}
 			// sequences, indexes, and constraints
 			if (sel.contains("createSequencesForPrimaryKeys")) {
+				// TODO: IMPLEMENT THIS
 				log("CREATING SEQUENCES");
 				//				use(conn);
 				//				CreateSequencesForPrimaryKeys.exec(conn);
 				log.info("Done with Create Sequences.");
 			}
 			if (sel.contains("createIndexes")) {
-				log("CREATING CONSTRAINTS");
+				// TODO: IMPLEMENT THIS
+				log("CREATING INDEXEX");
 				//				use(conn);
 				//				CreateDatabaseIndexes.exec(conn);
 				log.info("Done with Create Indexes.");
 			}
 			if (sel.contains("addConstraints")) {
+				// TODO: IMPLEMENT THIS
 				log("ADDING CONSTRAINTS");
 				//				use(conn);
 				//				AddConstraints.exec();
 				log.info("Done Adding Constraints.");
 			}
 			if (sel.contains("disableConstraints")) {
+				// TODO: IMPLEMENT THIS
 				log("DISABLING CONSTRAINTS");
 				//				use(conn);
 				//				DisableConstraints.exec(conn);
 				log.info("Done with Disable Constraints.");
 			}
 			if (sel.contains("enableConstraints")) {
+				// TODO: IMPLEMENT THIS
 				log("ENABLING CONSTRAINTS");
 				//				use(conn);
 				//				EnableConstraints.exec(conn);
@@ -203,16 +212,19 @@ public class ExecutePolitesGoActionForPostgres {
 			}
 			// run achilles
 			if (sel.contains("deleteWebApiRecords")) {
+				// TODO: IMPLEMENT THIS
 				log("DELETING WEBAPI RECORDS");
 				//				DeleteWebApiRecords.exec();
 				log.info("Done deleting webapi records.");
 			}
 			if (sel.contains("addWebApiRecords")) {
+				// TODO: IMPLEMENT THIS
 				log("ADDING WEBAPI RECORDS");
 				//				CreateWebApiRecords.exec();
 				log.info("Done adding webapi records.");
 			}
 			if (sel.contains("createAchillesDatabase")) {
+				// TODO: IMPLEMENT THIS
 				log("CREATING ACHILLES DATABASE");
 				//				use(conn);
 				//				CreateAchillesDatabases.exec();
@@ -220,6 +232,7 @@ public class ExecutePolitesGoActionForPostgres {
 				log.info("Done creating Achilles database.");
 			}
 			if (sel.contains("runAchilles")) {
+				// TODO: IMPLEMENT THIS
 				log("RUNNING ACHILLES");
 				//				use(conn);
 				//				RunAchilles.exec();
