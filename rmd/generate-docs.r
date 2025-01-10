@@ -1,4 +1,4 @@
-rmarkdown::render_site("./rmd")
+rmarkdown::render_site("./")
 
 
 
